@@ -1,1 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Alliance Against Antisemitism PAC</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --navy:#0A2540;
+  --dark:#0F172A;
+  --red:#C1272D;
+  --gray:#6B7280;
+  --light:#F1F5F9;
+  --white:#FFFFFF;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:Inter,system-ui,sans-serif;
+  color:var(--dark);
+  line-height:1.6;
+  background:var(--white);
+}
+
+a{text-decoration:none;color:inherit}
+
+header{
+  position:fixed;
+  top:0;
+  width:100%;
+  z-index:1000;
+  background:rgba(10,37,64,.96);
+  backdrop-filter:blur(6px);
+}
+
+.nav{
+  max-width:1200px;
+  margin:auto;
+  padding:1.1rem 2rem;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.nav strong{
+  color:white;
+  font-weight:700;
+  letter-spacing:.3px;
+}
+
+.nav nav a{
+  margin-left:1.6rem;
+  color:#E5E7EB;
+  font-weight:500;
+}
+
+.nav nav a:hover{color:white}
+
+.donate{
+  background:var(--red);
+  padding:.6rem 1.2rem;
+  border-radius:6px;
+  font-weight:700;
+  color:white;
+}
+
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  background:
+    linear-gradient(rgba(10,37,64,.88),rgba(10,37,64,.88)),
+    url('https://images.unsplash.com/photo-1555375771-14b2a63968a9') center/cover no-repeat;
+  padding-top:90px;
+}
+
+.hero-inner{
+  max-width:900px;
+  padding:4rem 2rem;
+}
+
+.hero h1{
+  color:white;
+  font-size:3.8rem;
+  font-weight:800;
+  line-height:1.1;
+  margin-bottom:1.4rem;
+}
+
+.hero p{
+  color:#E5E7EB;
+  font-size:1.25rem;
+  max-width:650px;
+  margin-bottom:2.5rem;
+}
+
+.hero .buttons a{
+  display:inline-block;
+  margin-right:1rem;
+  padding:.85rem 1.9rem;
+  border-radius:6px;
+  font-weight:600;
+}
+
+.primary{background:var(--red);color:white}
+.secondary{border:1px solid white;color:white}
+
+section{
+  max-width:1200px;
+  margin:auto;
+  padding:7rem 2rem;
+}
+
+.section-title{
+  text-align:center;
+  font-size:2.4rem;
+  font-weight:700;
+  margin-bottom:3.5rem;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:3rem;
+}
+
+.card{
+  background:var(--light);
+  padding:2.6rem;
+  border-radius:10px;
+}
+
+.card h3{
+  font-size:1.3rem;
+  font-weight:600;
+  margin-bottom:.8rem;
+}
+
+.card p{color:var(--gray)}
+
+.statement{
+  background:var(--navy);
+  color:white;
+  padding:6rem 2rem;
+  text-align:center;
+  font-size:2.3rem;
+  font-weight:700;
+  letter-spacing:.3px;
+}
+
+.cta{
+  text-align:center;
+}
+
+.cta a{
+  display:inline-block;
+  background:var(--red);
+  color:white;
+  padding:1rem 2.2rem;
+  margin:.6rem;
+  border-radius:6px;
+  font-weight:700;
+}
+
+footer{
+  background:#020617;
+  color:#CBD5F5;
+  padding:4rem 2rem;
+}
+
+.footer-inner{
+  max-width:1200px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:2rem;
+  font-size:.95rem;
+}
+
+footer a{color:#CBD5F5}
+
+@media(max-width:768px){
+  .hero h1{font-size:2.6rem}
+  .nav nav{display:none}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="nav">
+    <strong>Alliance Against Antisemitism PAC</strong>
+    <nav>
+      <a href="#">About</a>
+      <a href="#">Issues</a>
+      <a href="#">Endorsements</a>
+      <a href="#">News</a>
+      <a href="#">Get Involved</a>
+      <a class="donate" href="#">Donate</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <h1>Stopping Antisemitism.<br>Strengthening Democracy.</h1>
+    <p>
+      A national Democratic PAC supporting leaders who confront hate,
+      protect pluralism, and govern with strength and clarity.
+    </p>
+    <div class="buttons">
+      <a href="#" class="primary">Donate</a>
+      <a href="#" class="secondary">Learn More</a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2 class="section-title">Why We Exist</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>The Threat</h3>
+      <p>Antisemitism is rising nationwide, corroding democratic institutions and civic trust.</p>
+    </div>
+    <div class="card">
+      <h3>The Strategy</h3>
+      <p>We deploy disciplined political capital to back leaders willing to confront extremism.</p>
+    </div>
+    <div class="card">
+      <h3>The Impact</h3>
+      <p>Candidates elected. Extremists defeated. Democratic norms defended.</p>
+    </div>
+  </div>
+</section>
+
+<div class="statement">
+  Silence enables hate.<br>
+  We fund leaders who fight it.
+</div>
+
+<section>
+  <h2 class="section-title">Powering Victories Nationwide</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>✔ Endorsed → ✔ Elected</h3>
+      <p>House and Senate races in decisive districts.</p>
+    </div>
+    <div class="card">
+      <h3>✔ Strategic Investments</h3>
+      <p>High-leverage spending where outcomes matter.</p>
+    </div>
+    <div class="card">
+      <h3>✔ Coalition Strength</h3>
+      <p>Democracy-forward candidates prevailed.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <h2 class="section-title">Take Action</h2>
+  <a href="#">Donate</a>
+  <a href="#">Sign Up for Updates</a>
+  <a href="#">Partner With Us</a>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <strong>Alliance Against Antisemitism PAC</strong><br>
+      Paid for by Alliance Against Antisemitism PAC
+    </div>
+    <div>
+      <a href="#">About</a><br>
+      <a href="#">Contact</a><br>
+      <a href="#">Privacy Policy</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
