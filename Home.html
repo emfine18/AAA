@@ -9,218 +9,250 @@
 
 <style>
 :root{
-  --blue-900:#1F3A5F;
-  --blue-700:#2E5EAA;
-  --blue-100:#EAF2FB;
-  --blue-050:#F5F9FD;
+  --blue-900:#243B8F;
+  --blue-700:#2F4DBA;
+  --blue-500:#4F7EE8;
+  --blue-100:#E6F0FF;
+  --blue-050:#F4F8FF;
   --gray-900:#1F2937;
-  --gray-700:#374151;
-  --gray-500:#6B7280;
-  --border:#E5E7EB;
+  --gray-600:#4B5563;
+  --border:#D6E4FF;
   --white:#FFFFFF;
 }
 
 *{box-sizing:border-box;margin:0;padding:0}
-
 body{
   font-family:Inter,system-ui,sans-serif;
   color:var(--gray-900);
-  background:var(--white);
+  background:white;
   line-height:1.6;
 }
 
 a{text-decoration:none;color:inherit}
 
-/* HEADER */
+/* NAV */
 header{
-  position:fixed;
-  top:0;
-  width:100%;
-  background:var(--white);
+  background:white;
   border-bottom:1px solid var(--border);
-  z-index:1000;
 }
 
 .nav{
-  max-width:1200px;
+  max-width:1280px;
   margin:auto;
-  padding:0.85rem 2rem;
+  padding:1rem 2rem;
   display:flex;
-  justify-content:space-between;
   align-items:center;
+  justify-content:space-between;
 }
 
 .nav strong{
   font-weight:700;
   color:var(--blue-900);
-  font-size:1.05rem;
 }
 
 .nav nav a{
-  margin-left:1.4rem;
+  margin-left:1.6rem;
   font-weight:500;
-  color:var(--gray-700);
+  color:var(--gray-900);
 }
 
-.nav nav a:hover{color:var(--blue-700)}
+/* SECTION HEADER */
+.section-head{
+  text-align:center;
+  margin-bottom:2.5rem;
+}
 
-.donate{
+.section-head h2{
+  font-size:2.1rem;
+  font-weight:700;
+  color:var(--blue-900);
+}
+
+.section-head .underline{
+  width:60px;
+  height:4px;
   background:var(--blue-700);
-  color:white;
-  padding:0.45rem 1.1rem;
+  margin:0.75rem auto 0;
   border-radius:4px;
-  font-weight:600;
 }
 
-/* HERO */
-.hero{
-  margin-top:64px;
-  background:
-    linear-gradient(rgba(245,249,253,.94),rgba(245,249,253,.94)),
-    url("https://images.unsplash.com/photo-1600880292089-90a7e086ee0c") center/cover no-repeat;
-}
-
-.hero-inner{
-  max-width:1200px;
-  margin:auto;
-  padding:3.5rem 2rem 3rem;
-}
-
-.hero h1{
-  font-size:2.6rem;
-  font-weight:600;
-  color:var(--blue-900);
-  max-width:760px;
-  margin-bottom:1.2rem;
-}
-
-.hero p{
-  font-size:1.05rem;
-  max-width:640px;
-  color:var(--gray-700);
-  margin-bottom:1.6rem;
-}
-
-.hero .buttons a{
-  display:inline-block;
-  margin-right:0.6rem;
-  padding:0.6rem 1.4rem;
-  border-radius:4px;
-  font-weight:600;
-  font-size:0.95rem;
-}
-
-.primary{background:var(--blue-700);color:white}
-.secondary{border:1px solid var(--blue-700);color:var(--blue-700)}
-
-/* SECTIONS */
+/* WRAPPER */
 section{
-  max-width:1200px;
+  max-width:1280px;
   margin:auto;
-  padding:3rem 2rem;
+  padding:4rem 2rem;
 }
 
-.section-title{
-  font-size:1.8rem;
-  font-weight:600;
-  color:var(--blue-900);
-  margin-bottom:1.5rem;
-}
-
-/* GRID */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:1.6rem;
-}
-
-.card{
-  background:var(--blue-050);
-  padding:1.6rem;
-  border:1px solid var(--border);
-  border-radius:4px;
-}
-
-.card h3{
-  font-size:1.05rem;
-  font-weight:600;
-  margin-bottom:0.4rem;
-  color:var(--blue-900);
-}
-
-.card p{
-  font-size:0.95rem;
-  color:var(--gray-700);
-}
-
-/* STATEMENT */
-.statement{
+/* IMPACT STATS */
+.stats{
   background:var(--blue-100);
-  padding:2.8rem 2rem;
+}
+
+.stat-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:1.5rem;
+}
+
+.stat{
+  background:var(--blue-900);
+  color:white;
+  padding:2.5rem 1.5rem;
+  border-radius:20px;
+}
+
+.stat h3{
+  font-size:2.4rem;
+  font-weight:700;
+  margin-bottom:0.5rem;
+}
+
+.stat p{
+  font-size:0.95rem;
+  opacity:0.9;
+}
+
+/* STORY CARDS */
+.card-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:2rem;
+}
+
+.story{
+  border:1px solid var(--border);
+  border-radius:22px;
+  overflow:hidden;
+  background:white;
+}
+
+.story img{
+  width:100%;
+  height:240px;
+  object-fit:cover;
+}
+
+.story-body{
+  padding:1.6rem;
+}
+
+.story h3{
+  font-size:1.2rem;
+  font-weight:700;
+  color:var(--blue-900);
+  margin-bottom:0.5rem;
+}
+
+.story p{
+  font-size:0.95rem;
+  color:var(--gray-600);
+}
+
+/* STATEMENT BLOCK */
+.statement{
+  background:white;
 }
 
 .statement-inner{
-  max-width:1200px;
-  margin:auto;
-  font-size:1.6rem;
-  font-weight:600;
-  color:var(--blue-900);
-}
-
-/* CTA */
-.cta{
   background:var(--white);
-  padding:3rem 2rem;
-  border-top:1px solid var(--border);
+  border-radius:40px;
+  padding:4rem;
+  box-shadow:0 20px 60px rgba(36,59,143,.08);
+  text-align:center;
 }
 
-.cta-inner{
-  max-width:1200px;
-  margin:auto;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  flex-wrap:wrap;
-  gap:1.2rem;
-}
-
-.cta-inner h2{
-  font-size:1.6rem;
+.statement-inner p{
+  font-size:1.8rem;
   font-weight:600;
   color:var(--blue-900);
+  max-width:900px;
+  margin:auto;
 }
 
-.cta-inner a{
-  background:var(--blue-700);
+/* ACTION CARDS */
+.action-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:2rem;
+}
+
+.action{
+  border:1px solid var(--border);
+  border-radius:22px;
+  overflow:hidden;
+  background:white;
+}
+
+.action img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+}
+
+.action-body{
+  padding:1.6rem;
+}
+
+.action h3{
+  font-size:1.2rem;
+  font-weight:700;
+  color:var(--blue-900);
+  margin-bottom:0.5rem;
+}
+
+.action p{
+  font-size:0.95rem;
+  color:var(--gray-600);
+}
+
+/* ADVOCACY CTA */
+.advocacy{
+  background:var(--blue-900);
   color:white;
-  padding:0.65rem 1.5rem;
-  border-radius:4px;
+}
+
+.advocacy-inner{
+  max-width:1280px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:1.2fr 1fr;
+  gap:3rem;
+  align-items:center;
+}
+
+.advocacy img{
+  width:100%;
+  border-radius:30px;
+}
+
+.advocacy h2{
+  font-size:2.4rem;
+  margin-bottom:1rem;
+}
+
+.advocacy p{
+  font-size:1.05rem;
+  margin-bottom:1.5rem;
+}
+
+.advocacy a{
+  display:inline-block;
+  background:white;
+  color:var(--blue-900);
+  padding:0.7rem 1.6rem;
+  border-radius:999px;
   font-weight:600;
 }
 
-/* FOOTER */
-footer{
-  background:var(--blue-900);
-  color:#E6EDF6;
-  padding:2.5rem 2rem;
-}
-
-.footer-inner{
-  max-width:1200px;
-  margin:auto;
-  display:flex;
-  justify-content:space-between;
-  flex-wrap:wrap;
-  gap:1.5rem;
-  font-size:0.9rem;
-}
-
-footer a{color:#E6EDF6}
-
+/* RESPONSIVE */
 @media(max-width:900px){
-  .grid{grid-template-columns:1fr}
-  .hero h1{font-size:2.1rem}
-  .nav nav{display:none}
+  .stat-grid,
+  .card-grid,
+  .action-grid,
+  .advocacy-inner{
+    grid-template-columns:1fr;
+  }
+  .statement-inner{padding:2.5rem}
 }
 </style>
 </head>
@@ -233,90 +265,103 @@ footer a{color:#E6EDF6}
     <nav>
       <a href="#">About</a>
       <a href="#">Our Work</a>
-      <a href="#">Policy</a>
-      <a href="#">Engagement</a>
-      <a class="donate" href="#">Support</a>
+      <a href="#">Impact</a>
+      <a href="#">Act Now</a>
     </nav>
   </div>
 </header>
 
-<div class="hero">
-  <div class="hero-inner">
-    <h1>Strengthening American Leadership Against Antisemitism</h1>
-    <p>
-      The Alliance Against Antisemitism PAC supports responsible leadership,
-      democratic values, and a shared commitment to combating antisemitism
-      in American public life.
-    </p>
-    <div class="buttons">
-      <a href="#" class="primary">Support Our Work</a>
-      <a href="#" class="secondary">Learn More</a>
-    </div>
+<section class="stats">
+  <div class="section-head">
+    <h2>Our Impact</h2>
+    <div class="underline"></div>
   </div>
-</div>
+
+  <div class="stat-grid">
+    <div class="stat"><h3>National</h3><p>Electoral reach across key states</p></div>
+    <div class="stat"><h3>Policy</h3><p>Federal & state-level engagement</p></div>
+    <div class="stat"><h3>Coalitions</h3><p>Partners across communities</p></div>
+    <div class="stat"><h3>Leadership</h3><p>Supporting trusted leaders</p></div>
+  </div>
+</section>
 
 <section>
-  <h2 class="section-title">Our Mission</h2>
-  <div class="grid">
-    <div class="card">
-      <h3>Combating Antisemitism</h3>
-      <p>Advancing policies and leadership that address antisemitism across society.</p>
+  <div class="section-head">
+    <h2>Impact Stories</h2>
+    <div class="underline"></div>
+  </div>
+
+  <div class="card-grid">
+    <div class="story">
+      <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d">
+      <div class="story-body">
+        <h3>Building Safer Communities</h3>
+        <p>Working with leaders to confront antisemitism locally and nationally.</p>
+      </div>
     </div>
-    <div class="card">
-      <h3>Democratic Values</h3>
-      <p>Supporting leaders who protect pluralism, inclusion, and democratic institutions.</p>
-    </div>
-    <div class="card">
-      <h3>Community Engagement</h3>
-      <p>Working in partnership with communities and institutions nationwide.</p>
+    <div class="story">
+      <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac">
+      <div class="story-body">
+        <h3>Coalition Advocacy</h3>
+        <p>Partnering across faiths and communities to defend democratic values.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<div class="statement">
+<section class="statement">
   <div class="statement-inner">
-    Combating antisemitism is essential to the health of American democracy.
+    <p>
+      We advocate tirelessly at every level of government to safeguard Jewish
+      institutions, combat antisemitism, and strengthen democracy for all.
+    </p>
   </div>
-</div>
+</section>
 
 <section>
-  <h2 class="section-title">Our Impact</h2>
-  <div class="grid">
-    <div class="card">
-      <h3>Leadership Support</h3>
-      <p>Engaging with elected leaders committed to confronting hate.</p>
+  <div class="section-head">
+    <h2>Act Now</h2>
+    <div class="underline"></div>
+  </div>
+
+  <div class="action-grid">
+    <div class="action">
+      <img src="https://images.unsplash.com/photo-1544027993-37dbfe43562a">
+      <div class="action-body">
+        <h3>Combat Antisemitism</h3>
+        <p>Advance policies that clearly identify and confront antisemitism.</p>
+      </div>
     </div>
-    <div class="card">
-      <h3>Policy Advocacy</h3>
-      <p>Elevating antisemitism as a serious issue in national policy discussions.</p>
+    <div class="action">
+      <img src="https://images.unsplash.com/photo-1587614382346-4ec70e388b28">
+      <div class="action-body">
+        <h3>Protect Communities</h3>
+        <p>Support security and protection for Jewish institutions.</p>
+      </div>
     </div>
-    <div class="card">
-      <h3>Coalition Building</h3>
-      <p>Partnering with organizations across faiths and communities.</p>
+    <div class="action">
+      <img src="https://images.unsplash.com/photo-1509099836639-18ba02c55eeb">
+      <div class="action-body">
+        <h3>Support Survivors</h3>
+        <p>Ensure Holocaust survivors receive essential care and dignity.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<div class="cta">
-  <div class="cta-inner">
-    <h2>Join Us in Strengthening American Democracy</h2>
-    <a href="#">Support the Alliance</a>
-  </div>
-</div>
-
-<footer>
-  <div class="footer-inner">
+<section class="advocacy">
+  <div class="advocacy-inner">
+    <img src="https://images.unsplash.com/photo-1526406915894-6c9bca1db1d9">
     <div>
-      <strong>Alliance Against Antisemitism PAC</strong><br>
-      Paid for by Alliance Against Antisemitism PAC
-    </div>
-    <div>
-      <a href="#">About</a><br>
-      <a href="#">Contact</a><br>
-      <a href="#">Privacy Policy</a>
+      <h2>Join Our Advocacy Corps</h2>
+      <p>
+        Members receive training and support to engage civic leaders and
+        advance legislation that strengthens Jewish life and American democracy.
+      </p>
+      <a href="#">Sign Up</a>
     </div>
   </div>
-</footer>
+</section>
 
 </body>
 </html>
