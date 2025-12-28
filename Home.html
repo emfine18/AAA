@@ -9,36 +9,38 @@
 
 <style>
 :root{
-  --blue:#1E40AF;       /* Democratic blue */
+  --blue:#1E40AF;
   --light-blue:#EFF6FF;
   --red:#DC2626;
-  --gray:#374151;
-  --light-gray:#F9FAFB;
+  --dark:#1F2937;
+  --gray:#4B5563;
+  --border:#E5E7EB;
 }
 
 *{box-sizing:border-box;margin:0;padding:0}
 body{
   font-family:Inter,system-ui,sans-serif;
-  color:var(--gray);
-  line-height:1.6;
+  color:var(--dark);
   background:white;
+  line-height:1.55;
 }
 
 a{text-decoration:none;color:inherit}
 
+/* NAV */
 header{
   position:fixed;
-  width:100%;
   top:0;
-  z-index:1000;
+  width:100%;
   background:white;
-  border-bottom:1px solid #E5E7EB;
+  border-bottom:1px solid var(--border);
+  z-index:1000;
 }
 
 .nav{
   max-width:1200px;
   margin:auto;
-  padding:1rem 2rem;
+  padding:0.9rem 2rem;
   display:flex;
   justify-content:space-between;
   align-items:center;
@@ -47,54 +49,53 @@ header{
 .nav strong{
   color:var(--blue);
   font-weight:800;
-  letter-spacing:.2px;
 }
 
 .nav nav a{
-  margin-left:1.6rem;
+  margin-left:1.4rem;
   font-weight:600;
-  color:#1F2937;
+  color:var(--dark);
 }
 
 .donate{
   background:var(--red);
   color:white;
-  padding:.6rem 1.2rem;
+  padding:0.45rem 1.1rem;
   border-radius:6px;
 }
 
+/* HERO */
 .hero{
-  min-height:100vh;
+  margin-top:64px;
   background:
-    linear-gradient(rgba(255,255,255,.85),rgba(255,255,255,.85)),
-    url('https://images.unsplash.com/photo-1524492412937-b28074a5d7da') center/cover no-repeat;
-  display:flex;
-  align-items:center;
-  padding-top:90px;
+    linear-gradient(rgba(255,255,255,.9),rgba(255,255,255,.9)),
+    url("https://images.unsplash.com/photo-1504280390367-361c6d9f38f4") center/cover no-repeat;
 }
 
 .hero-inner{
-  max-width:850px;
-  padding:4rem 2rem;
+  max-width:1200px;
+  margin:auto;
+  padding:4rem 2rem 3.5rem;
 }
 
 .hero h1{
-  font-size:3.6rem;
+  font-size:3.2rem;
   font-weight:800;
   color:var(--blue);
-  margin-bottom:1.2rem;
+  max-width:800px;
+  margin-bottom:1rem;
 }
 
 .hero p{
-  font-size:1.25rem;
-  max-width:650px;
-  margin-bottom:2.2rem;
+  font-size:1.15rem;
+  max-width:640px;
+  margin-bottom:1.6rem;
 }
 
 .hero .buttons a{
   display:inline-block;
-  margin-right:1rem;
-  padding:.85rem 1.8rem;
+  margin-right:0.75rem;
+  padding:0.75rem 1.6rem;
   border-radius:6px;
   font-weight:700;
 }
@@ -102,69 +103,76 @@ header{
 .primary{background:var(--blue);color:white}
 .secondary{border:2px solid var(--blue);color:var(--blue)}
 
+/* SECTIONS */
 section{
   max-width:1200px;
   margin:auto;
-  padding:6rem 2rem;
+  padding:3.5rem 2rem;
 }
 
 .section-title{
-  text-align:center;
-  font-size:2.3rem;
+  font-size:2rem;
   font-weight:800;
   color:var(--blue);
-  margin-bottom:3rem;
+  margin-bottom:2rem;
+  text-align:center;
 }
 
 .grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:3rem;
+  grid-template-columns:repeat(3,1fr);
+  gap:2rem;
 }
 
 .card{
-  background:var(--light-gray);
-  padding:2.6rem;
-  border-radius:10px;
+  background:#F9FAFB;
+  padding:1.8rem;
+  border-radius:8px;
+  border:1px solid var(--border);
 }
 
 .card h3{
-  font-size:1.25rem;
+  font-size:1.15rem;
   font-weight:700;
-  margin-bottom:.8rem;
-  color:#111827;
+  margin-bottom:0.5rem;
 }
 
-.card p{color:#4B5563}
+.card p{
+  font-size:0.95rem;
+  color:var(--gray);
+}
 
+/* STATEMENT */
 .statement{
   background:var(--light-blue);
   text-align:center;
-  padding:5rem 2rem;
-  font-size:2.1rem;
+  padding:3rem 2rem;
+  font-size:1.9rem;
   font-weight:800;
   color:var(--blue);
 }
 
+/* CTA */
 .cta{
   text-align:center;
-  background:white;
+  padding:3.5rem 2rem;
 }
 
 .cta a{
   display:inline-block;
   background:var(--red);
   color:white;
-  padding:1rem 2.2rem;
-  margin:.6rem;
+  padding:0.85rem 1.8rem;
   border-radius:6px;
   font-weight:700;
+  margin:0.4rem;
 }
 
+/* FOOTER */
 footer{
   background:#1E3A8A;
   color:white;
-  padding:4rem 2rem;
+  padding:2.5rem 2rem;
 }
 
 .footer-inner{
@@ -173,14 +181,15 @@ footer{
   display:flex;
   justify-content:space-between;
   flex-wrap:wrap;
-  gap:2rem;
-  font-size:.95rem;
+  gap:1.5rem;
+  font-size:0.9rem;
 }
 
 footer a{color:#DBEAFE}
 
-@media(max-width:768px){
-  .hero h1{font-size:2.6rem}
+@media(max-width:900px){
+  .grid{grid-template-columns:1fr}
+  .hero h1{font-size:2.4rem}
   .nav nav{display:none}
 }
 </style>
@@ -202,34 +211,34 @@ footer a{color:#DBEAFE}
   </div>
 </header>
 
-<section class="hero">
+<div class="hero">
   <div class="hero-inner">
     <h1>Standing Up to Antisemitism.<br>Standing Up for America.</h1>
     <p>
-      A Democratic PAC supporting leaders who believe in democracy,
-      pluralism, and the fundamental promise of the United States.
+      We are a Democratic PAC supporting leaders who believe in democracy,
+      pluralism, and the enduring promise of the United States.
     </p>
     <div class="buttons">
       <a href="#" class="primary">Donate</a>
       <a href="#" class="secondary">Learn More</a>
     </div>
   </div>
-</section>
+</div>
 
 <section>
   <h2 class="section-title">Our Mission</h2>
   <div class="grid">
     <div class="card">
       <h3>Defend Democracy</h3>
-      <p>We support leaders committed to democratic institutions and equal justice.</p>
+      <p>Support leaders committed to democratic institutions and equal justice.</p>
     </div>
     <div class="card">
       <h3>Combat Antisemitism</h3>
-      <p>Antisemitism has no place in America — we confront it wherever it appears.</p>
+      <p>Confront antisemitism wherever it appears in American public life.</p>
     </div>
     <div class="card">
       <h3>Strengthen America</h3>
-      <p>Pluralism, inclusion, and freedom make our country stronger.</p>
+      <p>Pluralism, inclusion, and freedom make our nation stronger.</p>
     </div>
   </div>
 </section>
@@ -243,26 +252,26 @@ footer a{color:#DBEAFE}
   <h2 class="section-title">Our Impact</h2>
   <div class="grid">
     <div class="card">
-      <h3>✔ Democratic Candidates Elected</h3>
+      <h3>Democratic Candidates Elected</h3>
       <p>Supporting principled leaders across the country.</p>
     </div>
     <div class="card">
-      <h3>✔ Strategic Investments</h3>
-      <p>Helping win races that shape America’s future.</p>
+      <h3>Strategic Investments</h3>
+      <p>Winning races that shape America’s future.</p>
     </div>
     <div class="card">
-      <h3>✔ Broad Coalitions</h3>
-      <p>Working with partners who believe in American democracy.</p>
+      <h3>Broad Coalitions</h3>
+      <p>Partnering with organizations committed to democracy.</p>
     </div>
   </div>
 </section>
 
-<section class="cta">
+<div class="cta">
   <h2 class="section-title">Join the Movement</h2>
   <a href="#">Donate</a>
   <a href="#">Sign Up for Updates</a>
   <a href="#">Get Involved</a>
-</section>
+</div>
 
 <footer>
   <div class="footer-inner">
