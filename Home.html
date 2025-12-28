@@ -5,34 +5,38 @@
 <title>Alliance Against Antisemitism PAC</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 :root{
-  --blue:#1E40AF;
-  --light-blue:#EFF6FF;
-  --red:#DC2626;
-  --dark:#1F2937;
-  --gray:#4B5563;
+  --blue-900:#1F3A5F;
+  --blue-700:#2E5EAA;
+  --blue-100:#EAF2FB;
+  --blue-050:#F5F9FD;
+  --gray-900:#1F2937;
+  --gray-700:#374151;
+  --gray-500:#6B7280;
   --border:#E5E7EB;
+  --white:#FFFFFF;
 }
 
 *{box-sizing:border-box;margin:0;padding:0}
+
 body{
   font-family:Inter,system-ui,sans-serif;
-  color:var(--dark);
-  background:white;
-  line-height:1.55;
+  color:var(--gray-900);
+  background:var(--white);
+  line-height:1.6;
 }
 
 a{text-decoration:none;color:inherit}
 
-/* NAV */
+/* HEADER */
 header{
   position:fixed;
   top:0;
   width:100%;
-  background:white;
+  background:var(--white);
   border-bottom:1px solid var(--border);
   z-index:1000;
 }
@@ -40,138 +44,164 @@ header{
 .nav{
   max-width:1200px;
   margin:auto;
-  padding:0.9rem 2rem;
+  padding:0.85rem 2rem;
   display:flex;
   justify-content:space-between;
   align-items:center;
 }
 
 .nav strong{
-  color:var(--blue);
-  font-weight:800;
+  font-weight:700;
+  color:var(--blue-900);
+  font-size:1.05rem;
 }
 
 .nav nav a{
   margin-left:1.4rem;
-  font-weight:600;
-  color:var(--dark);
+  font-weight:500;
+  color:var(--gray-700);
 }
 
+.nav nav a:hover{color:var(--blue-700)}
+
 .donate{
-  background:var(--red);
+  background:var(--blue-700);
   color:white;
   padding:0.45rem 1.1rem;
-  border-radius:6px;
+  border-radius:4px;
+  font-weight:600;
 }
 
 /* HERO */
 .hero{
   margin-top:64px;
   background:
-    linear-gradient(rgba(255,255,255,.9),rgba(255,255,255,.9)),
-    url("https://images.unsplash.com/photo-1504280390367-361c6d9f38f4") center/cover no-repeat;
+    linear-gradient(rgba(245,249,253,.94),rgba(245,249,253,.94)),
+    url("https://images.unsplash.com/photo-1600880292089-90a7e086ee0c") center/cover no-repeat;
 }
 
 .hero-inner{
   max-width:1200px;
   margin:auto;
-  padding:4rem 2rem 3.5rem;
+  padding:3.5rem 2rem 3rem;
 }
 
 .hero h1{
-  font-size:3.2rem;
-  font-weight:800;
-  color:var(--blue);
-  max-width:800px;
-  margin-bottom:1rem;
+  font-size:2.6rem;
+  font-weight:600;
+  color:var(--blue-900);
+  max-width:760px;
+  margin-bottom:1.2rem;
 }
 
 .hero p{
-  font-size:1.15rem;
+  font-size:1.05rem;
   max-width:640px;
+  color:var(--gray-700);
   margin-bottom:1.6rem;
 }
 
 .hero .buttons a{
   display:inline-block;
-  margin-right:0.75rem;
-  padding:0.75rem 1.6rem;
-  border-radius:6px;
-  font-weight:700;
+  margin-right:0.6rem;
+  padding:0.6rem 1.4rem;
+  border-radius:4px;
+  font-weight:600;
+  font-size:0.95rem;
 }
 
-.primary{background:var(--blue);color:white}
-.secondary{border:2px solid var(--blue);color:var(--blue)}
+.primary{background:var(--blue-700);color:white}
+.secondary{border:1px solid var(--blue-700);color:var(--blue-700)}
 
 /* SECTIONS */
 section{
   max-width:1200px;
   margin:auto;
-  padding:3.5rem 2rem;
+  padding:3rem 2rem;
 }
 
 .section-title{
-  font-size:2rem;
-  font-weight:800;
-  color:var(--blue);
-  margin-bottom:2rem;
-  text-align:center;
+  font-size:1.8rem;
+  font-weight:600;
+  color:var(--blue-900);
+  margin-bottom:1.5rem;
 }
 
+/* GRID */
 .grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:2rem;
+  gap:1.6rem;
 }
 
 .card{
-  background:#F9FAFB;
-  padding:1.8rem;
-  border-radius:8px;
+  background:var(--blue-050);
+  padding:1.6rem;
   border:1px solid var(--border);
+  border-radius:4px;
 }
 
 .card h3{
-  font-size:1.15rem;
-  font-weight:700;
-  margin-bottom:0.5rem;
+  font-size:1.05rem;
+  font-weight:600;
+  margin-bottom:0.4rem;
+  color:var(--blue-900);
 }
 
 .card p{
   font-size:0.95rem;
-  color:var(--gray);
+  color:var(--gray-700);
 }
 
 /* STATEMENT */
 .statement{
-  background:var(--light-blue);
-  text-align:center;
-  padding:3rem 2rem;
-  font-size:1.9rem;
-  font-weight:800;
-  color:var(--blue);
+  background:var(--blue-100);
+  padding:2.8rem 2rem;
+}
+
+.statement-inner{
+  max-width:1200px;
+  margin:auto;
+  font-size:1.6rem;
+  font-weight:600;
+  color:var(--blue-900);
 }
 
 /* CTA */
 .cta{
-  text-align:center;
-  padding:3.5rem 2rem;
+  background:var(--white);
+  padding:3rem 2rem;
+  border-top:1px solid var(--border);
 }
 
-.cta a{
-  display:inline-block;
-  background:var(--red);
+.cta-inner{
+  max-width:1200px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:1.2rem;
+}
+
+.cta-inner h2{
+  font-size:1.6rem;
+  font-weight:600;
+  color:var(--blue-900);
+}
+
+.cta-inner a{
+  background:var(--blue-700);
   color:white;
-  padding:0.85rem 1.8rem;
-  border-radius:6px;
-  font-weight:700;
-  margin:0.4rem;
+  padding:0.65rem 1.5rem;
+  border-radius:4px;
+  font-weight:600;
 }
 
 /* FOOTER */
 footer{
-  background:#1E3A8A;
-  color:white;
+  background:var(--blue-900);
+  color:#E6EDF6;
   padding:2.5rem 2rem;
 }
 
@@ -185,11 +215,11 @@ footer{
   font-size:0.9rem;
 }
 
-footer a{color:#DBEAFE}
+footer a{color:#E6EDF6}
 
 @media(max-width:900px){
   .grid{grid-template-columns:1fr}
-  .hero h1{font-size:2.4rem}
+  .hero h1{font-size:2.1rem}
   .nav nav{display:none}
 }
 </style>
@@ -202,24 +232,24 @@ footer a{color:#DBEAFE}
     <strong>Alliance Against Antisemitism PAC</strong>
     <nav>
       <a href="#">About</a>
-      <a href="#">Issues</a>
-      <a href="#">Endorsements</a>
-      <a href="#">News</a>
-      <a href="#">Get Involved</a>
-      <a class="donate" href="#">Donate</a>
+      <a href="#">Our Work</a>
+      <a href="#">Policy</a>
+      <a href="#">Engagement</a>
+      <a class="donate" href="#">Support</a>
     </nav>
   </div>
 </header>
 
 <div class="hero">
   <div class="hero-inner">
-    <h1>Standing Up to Antisemitism.<br>Standing Up for America.</h1>
+    <h1>Strengthening American Leadership Against Antisemitism</h1>
     <p>
-      We are a Democratic PAC supporting leaders who believe in democracy,
-      pluralism, and the enduring promise of the United States.
+      The Alliance Against Antisemitism PAC supports responsible leadership,
+      democratic values, and a shared commitment to combating antisemitism
+      in American public life.
     </p>
     <div class="buttons">
-      <a href="#" class="primary">Donate</a>
+      <a href="#" class="primary">Support Our Work</a>
       <a href="#" class="secondary">Learn More</a>
     </div>
   </div>
@@ -229,48 +259,49 @@ footer a{color:#DBEAFE}
   <h2 class="section-title">Our Mission</h2>
   <div class="grid">
     <div class="card">
-      <h3>Defend Democracy</h3>
-      <p>Support leaders committed to democratic institutions and equal justice.</p>
+      <h3>Combating Antisemitism</h3>
+      <p>Advancing policies and leadership that address antisemitism across society.</p>
     </div>
     <div class="card">
-      <h3>Combat Antisemitism</h3>
-      <p>Confront antisemitism wherever it appears in American public life.</p>
+      <h3>Democratic Values</h3>
+      <p>Supporting leaders who protect pluralism, inclusion, and democratic institutions.</p>
     </div>
     <div class="card">
-      <h3>Strengthen America</h3>
-      <p>Pluralism, inclusion, and freedom make our nation stronger.</p>
+      <h3>Community Engagement</h3>
+      <p>Working in partnership with communities and institutions nationwide.</p>
     </div>
   </div>
 </section>
 
 <div class="statement">
-  Freedom. Democracy. Dignity.<br>
-  These are American values.
+  <div class="statement-inner">
+    Combating antisemitism is essential to the health of American democracy.
+  </div>
 </div>
 
 <section>
   <h2 class="section-title">Our Impact</h2>
   <div class="grid">
     <div class="card">
-      <h3>Democratic Candidates Elected</h3>
-      <p>Supporting principled leaders across the country.</p>
+      <h3>Leadership Support</h3>
+      <p>Engaging with elected leaders committed to confronting hate.</p>
     </div>
     <div class="card">
-      <h3>Strategic Investments</h3>
-      <p>Winning races that shape America’s future.</p>
+      <h3>Policy Advocacy</h3>
+      <p>Elevating antisemitism as a serious issue in national policy discussions.</p>
     </div>
     <div class="card">
-      <h3>Broad Coalitions</h3>
-      <p>Partnering with organizations committed to democracy.</p>
+      <h3>Coalition Building</h3>
+      <p>Partnering with organizations across faiths and communities.</p>
     </div>
   </div>
 </section>
 
 <div class="cta">
-  <h2 class="section-title">Join the Movement</h2>
-  <a href="#">Donate</a>
-  <a href="#">Sign Up for Updates</a>
-  <a href="#">Get Involved</a>
+  <div class="cta-inner">
+    <h2>Join Us in Strengthening American Democracy</h2>
+    <a href="#">Support the Alliance</a>
+  </div>
 </div>
 
 <footer>
