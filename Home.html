@@ -9,39 +9,32 @@
 
 <style>
 :root{
-  --blue-900:#1E3A8A;
-  --blue-700:#2563EB;
-  --blue-500:#3B82F6;
-  --blue-100:#EAF2FF;
-  --blue-050:#F6F9FF;
-  --gray-900:#1F2937;
-  --gray-600:#4B5563;
-  --border:#D6E4FF;
-  --white:#FFFFFF;
+  --blue:#1E40AF;
+  --light-blue:#EFF6FF;
+  --dark:#1F2937;
+  --gray:#4B5563;
+  --border:#E5E7EB;
 }
 
 *{box-sizing:border-box;margin:0;padding:0}
 
 body{
   font-family:"Lato", system-ui, sans-serif;
-  background:white;
-  color:var(--gray-900);
+  color:var(--dark);
   line-height:1.7;
+  background:white;
 }
 
 a{text-decoration:none;color:inherit}
 
 /* NAV */
 header{
-  position:sticky;
-  top:0;
-  background:white;
   border-bottom:1px solid var(--border);
-  z-index:1000;
+  background:white;
 }
 
 .nav{
-  max-width:1280px;
+  max-width:1100px;
   margin:auto;
   padding:1rem 2rem;
   display:flex;
@@ -51,274 +44,110 @@ header{
 
 .nav strong{
   font-weight:700;
-  color:var(--blue-900);
+  color:var(--blue);
 }
 
 .nav nav a{
-  margin-left:1.6rem;
+  margin-left:1.5rem;
   font-weight:400;
-  letter-spacing:0.02em;
-  position:relative;
 }
 
-.nav nav a::after{
-  content:"";
-  position:absolute;
-  left:0;
-  bottom:-6px;
-  width:0;
-  height:3px;
-  background:var(--blue-700);
-  transition:width .25s ease;
-}
-
-.nav nav a:hover::after{width:100%}
-
-/* HERO */
+/* HERO / HEADER COPY */
 .hero{
-  background:
-    linear-gradient(rgba(234,242,255,.92),rgba(234,242,255,.92)),
-    url("https://images.unsplash.com/photo-1504280390367-361c6d9f38f4") center/cover no-repeat;
+  background:var(--light-blue);
 }
 
 .hero-inner{
-  max-width:1280px;
-  margin:auto;
-  padding:4.5rem 2rem 4rem;
-}
-
-.hero h1{
-  font-size:3rem;
-  font-weight:700;
-  letter-spacing:-0.015em;
-  color:var(--blue-900);
-  max-width:820px;
-  margin-bottom:1rem;
-}
-
-.hero p{
-  font-size:1.1rem;
-  max-width:680px;
-  color:var(--gray-600);
-  margin-bottom:2rem;
-}
-
-.hero .buttons a{
-  display:inline-block;
-  margin-right:.75rem;
-  padding:.75rem 1.7rem;
-  border-radius:999px;
-  font-weight:700;
-  transition:all .25s ease;
-}
-
-.primary{
-  background:var(--blue-700);
-  color:white;
-}
-
-.primary:hover{
-  background:var(--blue-900);
-  transform:translateY(-2px);
-}
-
-.secondary{
-  border:2px solid var(--blue-700);
-  color:var(--blue-700);
-}
-
-.secondary:hover{
-  background:var(--blue-700);
-  color:white;
-}
-
-/* SECTIONS */
-section{
-  max-width:1280px;
+  max-width:900px;
   margin:auto;
   padding:4rem 2rem;
 }
 
-.section-head{
-  text-align:center;
-  margin-bottom:2.5rem;
-}
-
-.section-head h2{
-  font-size:2rem;
+.hero h1{
+  font-size:2.4rem;
   font-weight:700;
-  color:var(--blue-900);
+  color:var(--blue);
+  margin-bottom:1.2rem;
 }
 
-.section-head .underline{
-  width:60px;
-  height:4px;
-  background:var(--blue-700);
-  margin:.75rem auto 0;
-  border-radius:4px;
+.hero p{
+  font-size:1.1rem;
+  color:var(--dark);
 }
 
-/* STATS */
-.stats{
-  background:var(--blue-100);
+/* SECTIONS */
+section{
+  max-width:900px;
+  margin:auto;
+  padding:3.5rem 2rem;
 }
 
-.stat-grid{
+section h2{
+  font-size:1.6rem;
+  font-weight:700;
+  color:var(--blue);
+  margin-bottom:1rem;
+}
+
+section p{
+  margin-bottom:1rem;
+  color:var(--gray);
+}
+
+/* MISSION */
+.mission{
   display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:1.8rem;
+  grid-template-columns:1fr 1fr;
+  gap:2rem;
+  align-items:center;
 }
 
-.stat{
-  background:white;
-  border-radius:24px;
-  padding:2.2rem 1.6rem;
-  border:1px solid var(--border);
-  transition:all .3s ease;
+.mission img{
+  width:100%;
+  border-radius:6px;
 }
 
-.stat:hover{
-  transform:translateY(-6px);
-  box-shadow:0 20px 50px rgba(37,99,235,.15);
-}
-
-.stat h3{
-  font-size:2.2rem;
-  color:var(--blue-900);
-  margin-bottom:.4rem;
-}
-
-.stat p{
-  font-size:.95rem;
-  color:var(--gray-600);
-}
-
-/* CARDS */
-.card-grid{
+/* COCHAIRS */
+.chairs{
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:2rem;
 }
 
-.card{
-  background:white;
-  border-radius:24px;
-  border:1px solid var(--border);
-  overflow:hidden;
-  transition:all .3s ease;
-}
-
-.card:hover{
-  transform:translateY(-6px);
-  box-shadow:0 20px 50px rgba(37,99,235,.12);
-}
-
-.card img{
-  width:100%;
-  height:220px;
-  object-fit:cover;
-}
-
-.card-body{
-  padding:1.6rem;
-}
-
-.card h3{
-  font-size:1.2rem;
-  font-weight:700;
-  color:var(--blue-900);
-  margin-bottom:.5rem;
-}
-
-.card p{
-  font-size:.95rem;
-  color:var(--gray-600);
-}
-
-/* STATEMENT */
-.statement-inner{
-  background:white;
-  border-radius:40px;
-  padding:4rem;
-  box-shadow:0 20px 60px rgba(37,99,235,.12);
+.chair{
   text-align:center;
 }
 
-.statement-inner p{
-  font-size:1.7rem;
-  font-weight:700;
-  color:var(--blue-900);
-  max-width:900px;
-  margin:auto;
+.chair img{
+  width:100%;
+  border-radius:6px;
+  margin-bottom:.5rem;
 }
 
-/* CTA */
-.cta{
-  background:var(--blue-900);
-  color:white;
-}
-
-.cta-inner{
-  max-width:1280px;
-  margin:auto;
-  display:grid;
-  grid-template-columns:1.2fr 1fr;
-  gap:3rem;
-  align-items:center;
-}
-
-.cta-inner h2{
-  font-size:2.4rem;
-  margin-bottom:1rem;
-}
-
-.cta-inner p{
-  font-size:1.05rem;
-  margin-bottom:1.5rem;
-}
-
-.cta-inner a{
-  display:inline-block;
-  background:white;
-  color:var(--blue-900);
-  padding:.7rem 1.7rem;
-  border-radius:999px;
-  font-weight:700;
-  transition:all .25s ease;
-}
-
-.cta-inner a:hover{
-  transform:translateY(-2px);
-  box-shadow:0 10px 30px rgba(255,255,255,.3);
+.chair strong{
+  display:block;
+  margin-top:.5rem;
 }
 
 /* FOOTER */
 footer{
-  background:#162A63;
-  color:#EAF2FF;
-  padding:3rem 2rem;
+  border-top:1px solid var(--border);
+  padding:2rem;
+  margin-top:4rem;
 }
 
 .footer-inner{
-  max-width:1280px;
+  max-width:900px;
   margin:auto;
-  display:flex;
-  justify-content:space-between;
-  flex-wrap:wrap;
-  gap:2rem;
   font-size:.9rem;
+  color:var(--gray);
 }
 
 /* RESPONSIVE */
-@media(max-width:900px){
-  .stat-grid,
-  .card-grid,
-  .cta-inner{
+@media(max-width:800px){
+  .mission, .chairs{
     grid-template-columns:1fr;
   }
-  .hero h1{font-size:2.3rem}
-  .statement-inner{padding:2.5rem}
-  .nav nav{display:none}
 }
 </style>
 </head>
@@ -329,106 +158,89 @@ footer{
   <div class="nav">
     <strong>Alliance Against Antisemitism PAC</strong>
     <nav>
-      <a href="#">About</a>
-      <a href="#">Our Work</a>
-      <a href="#">Impact</a>
-      <a href="#">Act Now</a>
+      <a href="#about">About</a>
+      <a href="#mission">Our Mission</a>
+      <a href="#leadership">Leadership</a>
+      <a href="#contact">Contact</a>
     </nav>
   </div>
 </header>
 
 <div class="hero">
   <div class="hero-inner">
-    <h1>Standing Up to Antisemitism. Strengthening American Democracy.</h1>
-    <p>
-      We are a Democratic PAC supporting leaders who confront antisemitism,
-      protect Jewish communities, and uphold democratic values in the United States.
-    </p>
-    <div class="buttons">
-      <a href="#" class="primary">Support Our Work</a>
-      <a href="#" class="secondary">Learn More</a>
-    </div>
+    <h1>
+      Now is the time to elect candidates who will stand up to antisemitism.<br>
+      It’s as simple as that.
+    </h1>
   </div>
 </div>
 
-<section class="stats">
-  <div class="section-head">
-    <h2>Our Impact</h2>
-    <div class="underline"></div>
-  </div>
+<section id="about">
+  <h2>About the Alliance Against Antisemitism PAC</h2>
 
-  <div class="stat-grid">
-    <div class="stat"><h3>National</h3><p>Engagement across key states</p></div>
-    <div class="stat"><h3>Policy</h3><p>Federal and state advocacy</p></div>
-    <div class="stat"><h3>Security</h3><p>Protecting Jewish institutions</p></div>
-    <div class="stat"><h3>Coalitions</h3><p>Broad partnerships nationwide</p></div>
-  </div>
+  <p>
+    Antisemitism is not a relic of history — it is a growing threat in our politics,
+    schools, workplaces, and communities. To confront it effectively, we must act.
+  </p>
+
+  <p>
+    The Alliance Against Antisemitism PAC is dedicated to fighting antisemitism.
+    It ensures that combating antisemitism remains a national priority rooted in
+    America’s core values of democracy, freedom, and respect for all people.
+    By supporting candidates who take this fight seriously, we help make sure that
+    moral leadership is reflected in political leadership.
+  </p>
+
+  <p>
+    But this isn’t only about policy. It’s personal. Antisemitism touches real people,
+    real families, and real lives. This PAC exists because silence is not an option,
+    and statements are not enough.
+  </p>
+
+  <p>
+    We believe that every person deserves to live free from hate and fear — and that
+    together, we can make that a political reality. Together, we can send a message
+    that antisemitism — and all forms of hate — have no place in our politics or our country.
+  </p>
 </section>
 
-<section>
-  <div class="section-head">
-    <h2>Our Work</h2>
-    <div class="underline"></div>
-  </div>
+<section id="mission">
+  <h2>Our Mission</h2>
 
-  <div class="card-grid">
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1544027993-37dbfe43562a">
-      <div class="card-body">
-        <h3>Combat Antisemitism</h3>
-        <p>Advance clear standards and accountability to confront antisemitism.</p>
-      </div>
-    </div>
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1587614382346-4ec70e388b28">
-      <div class="card-body">
-        <h3>Protect Communities</h3>
-        <p>Support policies that keep Jewish institutions safe.</p>
-      </div>
-    </div>
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1509099836639-18ba02c55eeb">
-      <div class="card-body">
-        <h3>Strengthen Democracy</h3>
-        <p>Back leaders committed to democratic institutions and pluralism.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="statement-inner">
+  <div class="mission">
     <p>
-      We advocate tirelessly at every level of government to combat antisemitism
-      and strengthen democracy for all Americans.
+      Our mission is to ensure that fighting antisemitism is treated as a serious
+      political responsibility. We work to elect candidates who understand the
+      urgency of this moment and are willing to lead with clarity, courage, and conviction.
     </p>
+
+    <img src="https://images.unsplash.com/photo-1526406915894-6c9bca1db1d9" alt="U.S. Capitol">
   </div>
 </section>
 
-<section class="cta">
-  <div class="cta-inner">
-    <div>
-      <h2>Join the Movement</h2>
-      <p>
-        Stand with leaders and communities committed to confronting antisemitism
-        and defending democratic values.
-      </p>
-      <a href="#">Get Involved</a>
+<section id="leadership">
+  <h2>Co-Chairs</h2>
+
+  <div class="chairs">
+    <div class="chair">
+      <img src="https://via.placeholder.com/300x200" alt="Co-chair 1">
+      <strong>Co-Chair Name</strong>
+    </div>
+    <div class="chair">
+      <img src="https://via.placeholder.com/300x200" alt="Co-chair 2">
+      <strong>Co-Chair Name</strong>
+    </div>
+    <div class="chair">
+      <img src="https://via.placeholder.com/300x200" alt="Co-chair 3">
+      <strong>Co-Chair Name</strong>
     </div>
   </div>
 </section>
 
-<footer>
+<footer id="contact">
   <div class="footer-inner">
-    <div>
-      <strong>Alliance Against Antisemitism PAC</strong><br>
-      Paid for by Alliance Against Antisemitism PAC
-    </div>
-    <div>
-      <a href="#">About</a><br>
-      <a href="#">Contact</a><br>
-      <a href="#">Privacy Policy</a>
-    </div>
+    <strong>Alliance Against Antisemitism PAC</strong><br>
+    Paid for by the Alliance Against Antisemitism PAC
   </div>
 </footer>
 
