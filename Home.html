@@ -1,332 +1,241 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<title>Alliance Against Antisemitism PAC</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alliance Against Antisemitism PAC</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0A2342;
+      --accent: #D4AF37;
+      --bg: #F7F9FC;
+      --text: #1E1E1E;
+    }
 
-<style>
-:root{
-  --blue:#2F4FD8;
-  --blue-dark:#1E3A8A;
-  --ink:#0F172A;
-  --muted:#475569;
-  --light:#F1F5F9;
-  --white:#FFFFFF;
-}
+    * {
+      box-sizing: border-box;
+    }
 
-*{margin:0;padding:0;box-sizing:border-box}
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
 
-body{
-  font-family:"Lato", system-ui, sans-serif;
-  color:var(--ink);
-  background:white;
-  line-height:1.8;
-}
+    header {
+      background: var(--primary);
+      color: white;
+      padding: 1rem;
+    }
 
-a{text-decoration:none;color:inherit}
+    .header-inner {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      max-width: 1100px;
+      margin: auto;
+    }
 
-/* NAV */
-header{
-  max-width:1000px;
-  margin:auto;
-  padding:2.5rem 2rem 0;
-}
+    .logo {
+      width: 52px;
+      height: 52px;
+      flex-shrink: 0;
+    }
 
-nav{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  font-weight:700;
-}
+    nav {
+      background: #081b34;
+      padding: 0.75rem 1rem;
+      text-align: center;
+    }
 
-nav .right{
-  display:flex;
-  gap:1.5rem;
-}
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 0.75rem;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
 
-nav a{
-  position:relative;
-}
+    nav a:hover {
+      text-decoration: underline;
+    }
 
-nav a::after{
-  content:"";
-  position:absolute;
-  left:0;
-  bottom:-4px;
-  width:0;
-  height:2px;
-  background:var(--blue);
-  transition:width .2s ease;
-}
+    .hero {
+      padding: 3rem 1.25rem;
+      text-align: center;
+      background: white;
+    }
 
-nav a:hover::after{
-  width:100%;
-}
+    .hero h1 {
+      color: var(--primary);
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
 
-/* HERO */
-.hero{
-  max-width:1000px;
-  margin:auto;
-  padding:4rem 2rem 5rem;
-}
+    .hero p {
+      max-width: 700px;
+      margin: auto;
+      font-size: 1.1rem;
+    }
 
-.hero h1{
-  font-size:3.4rem;
-  font-weight:900;
-  line-height:1.1;
-  margin-bottom:2rem;
-}
+    .buttons {
+      margin-top: 2rem;
+    }
 
-.hero h1 span{
-  display:block;
-  color:var(--blue);
-}
+    .buttons a {
+      display: inline-block;
+      margin: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: bold;
+    }
 
-.hero p{
-  font-size:1.25rem;
-  max-width:720px;
-  color:var(--muted);
-}
+    .primary-btn {
+      background: var(--accent);
+      color: black;
+    }
 
-/* STATEMENT */
-.statement{
-  background:var(--light);
-  padding:5rem 2rem;
-}
+    .secondary-btn {
+      border: 2px solid var(--primary);
+      color: var(--primary);
+    }
 
-.statement-inner{
-  max-width:900px;
-  margin:auto;
-  font-size:1.35rem;
-  line-height:1.9;
-}
+    section {
+      padding: 2.5rem 1.25rem;
+      max-width: 1100px;
+      margin: auto;
+    }
 
-.statement strong{
-  font-weight:900;
-}
+    section h2 {
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
 
-/* VALUES */
-.values{
-  max-width:1100px;
-  margin:auto;
-  padding:5rem 2rem;
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:3rem;
-}
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
 
-.value{
-  background:var(--blue);
-  color:white;
-  padding:3.5rem 3rem;
-}
+    .card {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 6px;
+      border-left: 5px solid var(--accent);
+    }
 
-.value h2{
-  font-size:1.6rem;
-  font-weight:900;
-  margin-bottom:1.25rem;
-}
+    footer {
+      background: var(--primary);
+      color: white;
+      padding: 2rem 1.25rem;
+      font-size: 0.85rem;
+    }
 
-.value p{
-  font-size:1.05rem;
-  color:#E8EEFF;
-  max-width:26ch;
-}
-
-/* HUMAN MOMENT */
-.human{
-  max-width:900px;
-  margin:auto;
-  padding:5rem 2rem;
-  font-size:1.3rem;
-  line-height:1.9;
-}
-
-.human p{
-  margin-bottom:1.5rem;
-}
-
-/* MISSION */
-.mission{
-  background:var(--light);
-  padding:5rem 2rem;
-}
-
-.mission-inner{
-  max-width:900px;
-  margin:auto;
-}
-
-.mission h2{
-  font-size:2rem;
-  font-weight:900;
-  margin-bottom:1.5rem;
-}
-
-.mission p{
-  font-size:1.15rem;
-  color:var(--muted);
-  max-width:720px;
-}
-
-/* LEADERSHIP */
-.leadership{
-  max-width:900px;
-  margin:auto;
-  padding:5rem 2rem;
-}
-
-.leadership h2{
-  font-size:2rem;
-  font-weight:900;
-  margin-bottom:2rem;
-}
-
-.faces{
-  display:flex;
-  gap:2.5rem;
-}
-
-.face{
-  width:130px;
-  height:130px;
-  border-radius:50%;
-  background:#CBD5F5;
-}
-
-/* FOOTER */
-footer{
-  background:#0B1220;
-  color:#CBD5F5;
-  padding:5rem 2rem;
-}
-
-.footer-inner{
-  max-width:900px;
-  margin:auto;
-  font-size:.9rem;
-}
-
-.footer-inner strong{
-  color:white;
-}
-
-/* RESPONSIVE */
-@media(max-width:900px){
-  .values{grid-template-columns:1fr}
-  .faces{flex-direction:column}
-  .hero h1{font-size:2.4rem}
-}
-</style>
+    footer p {
+      max-width: 1100px;
+      margin: 0.5rem auto;
+    }
+  </style>
 </head>
-
 <body>
 
 <header>
-  <nav>
-    <div>Alliance Against Antisemitism PAC</div>
-    <div class="right">
-      <a href="#mission">Mission</a>
-      <a href="#leadership">Leadership</a>
-      <a href="#contact">Contact</a>
-      <a href="#donate">Donate</a>
+  <div class="header-inner">
+    <!-- SVG Logo -->
+    <svg class="logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="50" cy="50" r="48" fill="#D4AF37"/>
+      <path d="M50 18 L60 40 L84 40 L64 54 L72 78 L50 62 L28 78 L36 54 L16 40 L40 40 Z"
+            fill="#0A2342"/>
+    </svg>
+
+    <div>
+      <strong>Alliance Against Antisemitism PAC</strong><br>
+      <small>Defending communities. Protecting democracy.</small>
     </div>
-  </nav>
+  </div>
 </header>
 
+<nav>
+  <a href="#mission">Mission</a>
+  <a href="#issues">Issues</a>
+  <a href="#action">Action</a>
+  <a href="#donate">Donate</a>
+</nav>
+
 <section class="hero">
-  <h1>
-    Antisemitism is rising in America.
-    <span>Silence is no longer an option.</span>
-  </h1>
+  <h1>Fighting Antisemitism in Public Life</h1>
   <p>
-    This PAC exists to make confronting antisemitism a political requirement —
-    not a talking point, not a press release, and not something leaders can ignore
-    when it’s inconvenient.
+    We support candidates and policies that confront antisemitism, reject political
+    extremism, and uphold democratic values across the United States.
+  </p>
+
+  <div class="buttons">
+    <a href="#donate" class="primary-btn">Donate</a>
+    <a href="#action" class="secondary-btn">Get Involved</a>
+  </div>
+</section>
+
+<section id="mission">
+  <h2>Our Mission</h2>
+  <p>
+    Antisemitism is a growing threat to Jewish communities and to democracy itself.
+    The Alliance Against Antisemitism PAC works within the federal political system
+    to support leaders who oppose hate and defend pluralism.
   </p>
 </section>
 
-<section class="statement">
-  <div class="statement-inner">
-    Antisemitism is not abstract. It shows up in classrooms, on campuses,
-    in public office, and online. It shapes who feels safe, who feels targeted,
-    and who is told — directly or indirectly — that they do not belong.
-    <br><br>
-    <strong>
-      Democracy fails when hate goes unanswered.
-      Elections are where accountability begins.
-    </strong>
+<section id="issues">
+  <h2>Key Priorities</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Combat Hate Crimes</h3>
+      <p>Support strong enforcement and legislation to protect targeted communities.</p>
+    </div>
+    <div class="card">
+      <h3>Reject Extremism</h3>
+      <p>Hold elected officials accountable for rhetoric and policies that fuel hate.</p>
+    </div>
+    <div class="card">
+      <h3>Defend Democracy</h3>
+      <p>Support free elections, civil rights, and constitutional norms.</p>
+    </div>
   </div>
 </section>
 
-<section class="values">
-  <div class="value">
-    <h2>Antisemitism is a political issue</h2>
-    <p>
-      When elected leaders excuse, minimize, or ignore antisemitism,
-      they create the conditions for it to grow.
-    </p>
-  </div>
-
-  <div class="value">
-    <h2>Leadership requires action</h2>
-    <p>
-      Statements are not enough. Confronting antisemitism demands
-      courage, clarity, and accountability.
-    </p>
-  </div>
-
-  <div class="value">
-    <h2>Neutrality enables harm</h2>
-    <p>
-      Silence in the face of antisemitism is not neutrality —
-      it is permission.
-    </p>
-  </div>
+<section id="action">
+  <h2>Take Action</h2>
+  <ul>
+    <li>Stay informed on endorsements and policy positions</li>
+    <li>Support candidates committed to fighting antisemitism</li>
+    <li>Help amplify responsible leadership</li>
+  </ul>
 </section>
 
-<section class="human">
+<section id="donate">
+  <h2>Donate</h2>
   <p>
-    Antisemitism isn’t theoretical. It affects how people live, work,
-    organize, and move through the world.
+    Contributions help us support candidates who stand firmly against antisemitism
+    and for democratic values.
+  </p>
+  <p><strong>Online contribution platform coming soon.</strong></p>
+</section>
+
+<footer>
+  <p>
+    Paid for by Alliance Against Antisemitism PAC.
   </p>
   <p>
-    It affects parents deciding whether their kids are safe at school.
-    It affects students wondering if they belong.
-    It affects communities deciding whether anyone in power will show up for them.
-  </p>
-</section>
-
-<section class="mission" id="mission">
-  <div class="mission-inner">
-    <h2>Our Commitment</h2>
-    <p>
-      The Alliance Against Antisemitism PAC exists to ensure that antisemitism
-      is confronted with the seriousness it demands — in elections, in policy,
-      and in leadership. We support candidates who understand that moral leadership
-      must be reflected in political leadership.
-    </p>
-  </div>
-</section>
-
-<section class="leadership" id="leadership">
-  <h2>Leadership</h2>
-  <div class="faces">
-    <div class="face"></div>
-    <div class="face"></div>
-    <div class="face"></div>
-  </div>
-</section>
-
-<footer id="contact">
-  <div class="footer-inner">
-    <strong>Alliance Against Antisemitism PAC</strong><br><br>
-    Paid for by the Alliance Against Antisemitism PAC.<br>
     Not authorized by any candidate or candidate’s committee.
-  </div>
+  </p>
+  <p>
+    Contributions are subject to the limitations and prohibitions of the Federal
+    Election Campaign Act.
+  </p>
 </footer>
 
 </body>
