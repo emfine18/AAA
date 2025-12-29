@@ -34,22 +34,25 @@
       top: 0;
       left: 0;
       width: 100%;
-      padding: 0.75rem 1.5rem;
+      padding: 0.6rem 1.5rem;
       display: flex;
       justify-content: center;
       align-items: center;
       z-index: 3000;
+      pointer-events: none;
     }
 
     .site-name {
       color: white;
       font-weight: 700;
       font-size: 1.1rem;
+      line-height: 1;
+      pointer-events: auto;
     }
 
     .hamburger {
       position: fixed;
-      top: 1rem;
+      top: 0.9rem;
       right: 1.5rem;
       width: 28px;
       height: 22px;
@@ -70,7 +73,7 @@
 
     .menu {
       position: fixed;
-      top: 60px;
+      top: 56px;
       right: 1.5rem;
       background: white;
       width: 190px;
@@ -78,7 +81,7 @@
       box-shadow: 0 20px 40px rgba(0,0,0,.25);
       display: none;
       flex-direction: column;
-      padding: 0.5rem 0;
+      padding: 0.4rem 0;
       z-index: 5000;
     }
 
@@ -87,29 +90,31 @@
     }
 
     .menu a {
-  padding: 0.85rem 1.25rem;
-  font-weight: 700;
-  position: relative;
-  width: fit-content;
-}
+      padding: 0.85rem 1.25rem;
+      font-weight: 700;
+      color: var(--navy);
+      text-decoration: none;
+      position: relative;
+      display: inline-block;
+    }
 
-.menu a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -4px;
-  width: 0;
-  height: 3px;              /* THICKER */
-  background: var(--blue);
-  transition: width 0.25s ease;
-}
+    .menu a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0;
+      height: 3px;
+      background: var(--blue);
+      transition: width 0.25s ease;
+    }
 
-.menu a:hover::after {
-  width: 100%;              /* EXACT WORD WIDTH */
-}
+    .menu a:hover::after {
+      width: 100%;
+    }
 
     .menu .donate {
-      margin: 0.75rem 1.25rem;
+      margin: 0.5rem 1.25rem 0.6rem;
       background: var(--blue);
       color: white;
       text-align: center;
@@ -120,13 +125,16 @@
 
     /* ================= HERO ================= */
 
-.hero {
-  height: 100vh;
-  background:
-    linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)),
-    url("images/ferdinand-stohr-PeFk7fzxTdk-unsplash.jpg")
-      center 65% / cover no-repeat;
-}    
+    .hero {
+      height: 100vh;
+      background:
+        linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)),
+        url("images/ferdinand-stohr-PeFk7fzxTdk-unsplash.jpg")
+          center 65% / cover no-repeat;
+      position: relative;
+      z-index: 1;
+    }
+
     /* ================= ABOUT ================= */
 
     .about {
@@ -209,7 +217,15 @@
       font-size: 1.1rem;
       font-weight: 900;
       cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
       box-shadow: 0 12px 24px rgba(0,0,0,.25);
+    }
+
+    .stay-form .arrow {
+      font-size: 1.4rem;
+      line-height: 1;
     }
 
     /* ================= FOOTER ================= */
@@ -250,13 +266,6 @@
       .stay-form button {
         align-self: center;
       }
-
-      .stay-form .arrow {
-  font-size: 1.4rem;
-  margin-left: 0.5rem;
-  line-height: 1;
-}
-      
     }
   </style>
 </head>
@@ -304,9 +313,10 @@
           <input type="email" placeholder="Email Address" required>
           <input type="text" placeholder="ZIP Code" required>
         </div>
-<button type="submit">
-  Join <span class="arrow">›</span>
-</button>      </form>
+        <button type="submit">
+          Join <span class="arrow">›</span>
+        </button>
+      </form>
     </div>
   </section>
 
