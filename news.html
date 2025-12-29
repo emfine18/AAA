@@ -42,22 +42,26 @@
       pointer-events: none;
     }
 
-    .logo-wrap {
-      background: white;
-      padding: 0.4rem 0.9rem;
-      border-radius: 6px;
-      box-shadow: 0 6px 18px rgba(0,0,0,.18);
-      pointer-events: auto;
-    }
+.logo-wrap {
+  background: white;
+  padding: 0.4rem 0.9rem;
+  border-radius: 6px;          /* clean rectangle, not pill */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 18px rgba(0,0,0,.18);
+  pointer-events: auto;
+}
 
-    .logo-wrap img {
-      height: 34px;
-      display: block;
-    }
-
+.logo-wrap img {
+  height: 50px;               /* adjust if needed */
+  width: auto;
+  display: block;
+}
+    
     .hamburger {
       position: fixed;
-      top: 0.85rem;
+      top: 1.5rem;
       right: 1.5rem;
       width: 28px;
       height: 22px;
@@ -78,7 +82,7 @@
 
     .menu {
       position: fixed;
-      top: 56px;
+      top: 80px;
       right: 1.5rem;
       background: white;
       width: 190px;
@@ -226,26 +230,29 @@
 
 <body>
 
-  <!-- HEADER -->
-  <div class="top-bar">
-    <div class="logo-wrap">
-      <img src="images/AAALogo.png" alt="Alliance Against Antisemitism PAC Logo">
-    </div>
-  </div>
+<!-- HEADER -->
+<div class="top-bar">
+  <a href="index.html" class="logo-wrap">
+    <img src="images/AAALogo.png" alt="Alliance Against Antisemitism PAC Logo">
+  </a>
+</div>
 
-  <div class="hamburger" onclick="toggleMenu()">
-    <span></span><span></span><span></span>
-  </div>
+<!-- HAMBURGER -->
+<div class="hamburger" onclick="toggleMenu()">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
 
-  <!-- MENU -->
-  <nav class="menu" id="menu">
-    <a href="index.html#about"><span>About</span></a>
-    <a href="leadership.html"><span>Leadership</span></a>
-    <a href="news.html"><span>News</span></a>
-    <a href="contact.html"><span>Contact</span></a>
-    <a href="donate.html" class="donate">Donate</a>
-  </nav>
-
+<!-- MENU -->
+<nav class="menu" id="menu">
+  <a href="index.html"><span>Home</span></a>
+  <a href="leadership.html"><span>Leadership</span></a>
+  <a href="news.html"><span>News</span></a>
+  <a href="contact.html"><span>Contact</span></a>
+  <a href="donate.html" class="donate">Donate</a>
+</nav>
+  
   <!-- HERO -->
   <section class="hero">
     <h1>News & Updates</h1>
