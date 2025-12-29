@@ -1,220 +1,259 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width" />
-  <title>Alliance Against Antisemitism PAC</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Alliance Against Antisemitism PAC</title>
 
-  <style>
-    :root {
-      --blue: #0095B4;
-      --blue-rgb: 0,149,180;
-      --gray: #F2F4F8;
-      --white: #ffffff;
-      --dark: #262B42;
+<style>
+:root {
+  --text: #272a41;
+  --donate: #0096b5;
+  --white: #ffffff;
+  --gray: #f4f6f8;
+}
 
-      --border-radius: 6px;
-      --shadow: 0 20px 40px rgba(0,0,0,.15);
-      --outer-padding: 2rem;
-    }
+* { box-sizing: border-box; }
 
-    * { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  color: var(--text);
+}
 
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-      color: var(--dark);
-      background: var(--white);
-    }
+/* HERO */
+.hero {
+  position: relative;
+  height: 100vh;
+  background: url("/mnt/data/ferdinand-stohr-PeFk7fzxTdk-unsplash.jpeg") center/cover no-repeat;
+}
 
-    /* NAV */
-    nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      z-index: 100;
-    }
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.25);
+}
 
-    .logoWrap {
-      margin-top: 1.5rem;
-      padding: 2rem 2rem 1.25rem;
-      background: white;
-      border-radius: 0 0 var(--border-radius) var(--border-radius);
-      box-shadow: var(--shadow);
-      max-width: 320px;
-      text-align: center;
-    }
+/* TOP BAR */
+.top-bar {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  padding: 1.5rem 1.5rem;
+}
 
-    /* HERO */
-    .hero {
-      padding: var(--outer-padding);
-      margin-top: 6rem;
-    }
+.logo {
+  font-weight: 800;
+  font-size: 1.2rem;
+  color: white;
+}
 
-    .hero img {
-      width: 100%;
-      max-height: 85vh;
-      object-fit: cover;
-      border-radius: var(--border-radius);
-    }
+/* HAMBURGER */
+.menu-wrapper {
+  position: absolute;
+  right: 1.5rem;
+}
 
-    .intro {
-      position: relative;
-      background: var(--blue);
-      color: white;
-      max-width: 480px;
-      padding: 3rem;
-      margin-top: -4rem;
-      margin-left: -1rem;
-      border-radius: var(--border-radius);
-      box-shadow: var(--shadow);
-    }
+.hamburger {
+  background: white;
+  border: none;
+  width: 44px;
+  height: 44px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px;
+}
 
-    .intro h1 {
-      font-style: italic;
-      font-weight: 900;
-      margin: 0;
-      font-size: 2rem;
-      line-height: 2.5rem;
-    }
+.hamburger span {
+  height: 3px;
+  background: var(--text);
+  width: 100%;
+}
 
-    /* FEATURE */
-    section {
-      padding: 10rem 2rem 7.5rem;
-      background: var(--gray);
-      margin-top: 5rem;
-    }
+/* DROPDOWN */
+.menu {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 52px;
+  background: white;
+  box-shadow: 0 10px 30px rgba(0,0,0,.15);
+  min-width: 200px;
+}
 
-    .feature p {
-      font-style: italic;
-      font-weight: 900;
-      font-size: 2rem;
-      line-height: 3rem;
-      max-width: 800px;
-    }
+.menu a {
+  display: block;
+  padding: 0.9rem 1rem;
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 600;
+}
 
-    .feature span {
-      background: var(--blue);
-      color: white;
-      padding: .25rem .75rem;
-    }
+.menu a:hover {
+  background: var(--gray);
+}
 
-    /* STAY UPDATED */
-    .blue {
-      background: var(--blue);
-      color: white;
-      box-shadow: var(--shadow);
-    }
+.menu .donate {
+  background: var(--donate);
+  color: white;
+  text-align: center;
+  margin: 0.75rem;
+}
 
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      max-width: 400px;
-    }
+/* ABOUT SECTION */
+section {
+  padding: 6rem 2rem;
+}
 
-    input, button {
-      padding: 1rem;
-      font-size: 1rem;
-      border: none;
-    }
+.about {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+}
 
-    button {
-      background: var(--white);
-      color: var(--blue);
-      font-weight: 800;
-      text-transform: uppercase;
-      cursor: pointer;
-    }
+.about img {
+  width: 100%;
+  border-radius: 4px;
+}
 
-    /* ABOUT */
-    .about {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 3rem;
-    }
+@media (min-width: 900px) {
+  .about {
+    grid-template-columns: 1fr 1.5fr;
+    align-items: center;
+  }
+}
 
-    @media (min-width: 800px) {
-      .about {
-        grid-template-columns: 1fr 2fr;
-      }
-    }
+/* STAY UPDATED */
+.stay-updated {
+  background: var(--gray);
+  text-align: center;
+}
 
-    /* FOOTER */
-    footer {
-      padding: 5rem 2rem;
-      text-align: center;
-      background: var(--gray);
-    }
+form {
+  max-width: 420px;
+  margin: 2rem auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
 
-    .disclaimer {
-      margin-top: 2rem;
-      padding: .75rem 1.25rem;
-      border: 2px solid rgba(var(--blue-rgb),.15);
-      display: inline-block;
-      font-size: 14px;
-      color: rgba(var(--blue-rgb),.6);
-    }
-  </style>
+input, button {
+  padding: 0.9rem;
+  font-size: 1rem;
+}
+
+button {
+  background: var(--donate);
+  color: white;
+  border: none;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* FOOTER */
+footer {
+  background: var(--white);
+  text-align: center;
+  padding: 3rem 2rem;
+  font-size: 0.9rem;
+}
+
+.disclaimer {
+  margin-top: 1.5rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid #ccc;
+  display: inline-block;
+}
+</style>
 </head>
 
 <body>
 
-<nav>
-  <div class="logoWrap">
-    <strong>Alliance Against Antisemitism PAC</strong>
-  </div>
-</nav>
-
 <div class="hero">
-  <img src="https://images.unsplash.com/photo-1505964261931-59b7af849cc8?auto=format&fit=crop&w=1600&q=80" />
-  <div class="intro">
-    <h1>Confronting Antisemitism. Defending Democracy.</h1>
+  <div class="top-bar">
+    <div class="logo">Alliance Against Antisemitism PAC</div>
+
+    <div class="menu-wrapper">
+      <button class="hamburger" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </button>
+
+      <div class="menu" id="menu">
+        <a href="#about">About</a>
+        <a href="#leadership">Leadership</a>
+        <a href="#news">News</a>
+        <a href="#contact">Contact</a>
+        <a href="#donate" class="donate">Donate</a>
+      </div>
+    </div>
   </div>
 </div>
 
-<section>
-  <div class="feature">
-    <p>
-      We are a federal political action committee dedicated to
-      <span>combating antisemitism</span>
-      and supporting principled leadership.
-    </p>
-  </div>
-</section>
-
-<section class="blue">
-  <h2>Stay Updated</h2>
-  <form>
-    <input type="email" placeholder="Email Address" required />
-    <input type="text" placeholder="ZIP Code" required />
-    <button>Join</button>
-  </form>
-</section>
-
-<section>
+<section id="about">
   <div class="about">
-    <img src="https://images.unsplash.com/photo-1504198266283-4d13b6cb41c6?auto=format&fit=crop&w=1200&q=80" />
+    <img src="/mnt/data/shiona-das-0I_GHNL4xTw-unsplash.jpeg" alt="American Flags" />
+
     <div>
-      <h2>About Us</h2>
+      <h2>About the Alliance Against Antisemitism PAC</h2>
+
       <p>
-        Alliance Against Antisemitism PAC supports Democratic,
-        Republican, and Independent candidates who reject antisemitism,
-        oppose extremism, and defend democratic values.
+        Antisemitism is not a relic of history — it is a growing threat in our
+        politics, schools, workplaces, and communities. To confront it
+        effectively, we must act.
+      </p>
+
+      <p>
+        The Alliance Against Antisemitism PAC is dedicated to fighting
+        antisemitism. It ensures that combating antisemitism remains a national
+        priority rooted in America’s core values of democracy, freedom, and
+        respect for all people.
+      </p>
+
+      <p>
+        But this isn’t only about policy. It’s personal. Antisemitism touches
+        real people, real families, and real lives. This PAC exists because
+        silence is not an option.
+      </p>
+
+      <p>
+        Together, we can send a message that antisemitism — and all forms of hate
+        — have no place in our politics or our country.
       </p>
     </div>
   </div>
 </section>
 
-<footer>
-  <p>Alliance Against Antisemitism PAC</p>
+<section class="stay-updated">
+  <h2>Stay Up to Date</h2>
+  <form>
+    <input type="email" placeholder="Email Address" required />
+    <input type="text" placeholder="ZIP Code" required />
+    <button type="submit">Join</button>
+  </form>
+</section>
+
+<footer id="donate">
   <div class="disclaimer">
     Paid for by Alliance Against Antisemitism PAC.
     Not authorized by any candidate or candidate’s committee.
   </div>
 </footer>
+
+<script>
+function toggleMenu() {
+  const menu = document.getElementById("menu");
+  menu.style.display = menu.style.display === "block" ? "none" : "block";
+}
+</script>
 
 </body>
 </html>
