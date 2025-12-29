@@ -1,259 +1,310 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Alliance Against Antisemitism PAC</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Alliance Against Antisemitism PAC</title>
 
-<!-- Lato -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+  <!-- Lato font -->
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
 
-<style>
-:root {
-  --navy: #272a41;
-  --blue: #0096b5;
-  --light: #f4f6f8;
-  --white: #ffffff;
-}
+  <style>
+    :root {
+      --navy: #272a41;
+      --blue: #0096b5;
+      --light-gray: #f4f5f7;
+    }
 
-* { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-body {
-  margin: 0;
-  font-family: "Lato", system-ui, sans-serif;
-  color: var(--navy);
-  background: var(--white);
-}
+    body {
+      font-family: 'Lato', sans-serif;
+      color: var(--navy);
+      line-height: 1.6;
+    }
 
-/* HEADER */
-header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  padding: 1.25rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 100;
-}
+    /* ================= HERO ================= */
 
-.logo {
-  color: white;
-  font-weight: 900;
-  font-size: 1.1rem;
-}
+    .hero {
+      position: relative;
+      height: 100vh;
+      background:
+        linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)),
+        url("images/ferdinand-stohr-PeFk7fzxTdk-unsplash.jpg") center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
 
-.hamburger {
-  position: fixed;
-  right: 1.25rem;
-  top: 1.25rem;
-  width: 40px;
-  height: 40px;
-  background: transparent;
-  border: none;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 6px;
-  cursor: pointer;
-}
+    .hero-title {
+      color: white;
+      font-size: clamp(2rem, 5vw, 4rem);
+      font-weight: 900;
+      padding: 0 1rem;
+    }
 
-.hamburger span {
-  height: 3px;
-  background: white;
-  border-radius: 2px;
-}
+    /* ================= TOP BAR ================= */
 
-/* MENU */
-.menu {
-  display: none;
-  position: fixed;
-  top: 70px;
-  right: 1.25rem;
-  background: white;
-  border-radius: 14px;
-  box-shadow: 0 25px 50px rgba(0,0,0,.25);
-  width: 240px;
-  padding: 1rem 0;
-  z-index: 200;
-}
+    .top-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      pointer-events: none;
+    }
 
-.menu.open { display: block; }
+    .site-name {
+      color: white;
+      font-weight: 700;
+      font-size: 1.1rem;
+      pointer-events: auto;
+    }
 
-.menu a {
-  display: block;
-  padding: 1rem 1.5rem;
-  text-decoration: none;
-  color: var(--navy);
-  font-weight: 700;
-}
+    .hamburger {
+      position: fixed;
+      top: 1.25rem;
+      right: 1.5rem;
+      width: 28px;
+      height: 22px;
+      cursor: pointer;
+      z-index: 1100;
+    }
 
-.menu .donate {
-  margin: 1rem;
-  background: var(--blue);
-  color: white;
-  text-align: center;
-  border-radius: 10px;
-}
+    .hamburger span {
+      display: block;
+      height: 3px;
+      width: 100%;
+      background: white;
+      margin-bottom: 5px;
+      border-radius: 2px;
+    }
 
-/* HERO */
-.hero {
-  min-height: 100vh;
-  background:
-    linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.35)),
-    url("/mnt/data/ferdinand-stohr-PeFk7fzxTdk-unsplash.jpeg") center/cover no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 6rem 2rem 2rem;
-  text-align: center;
-}
+    /* ================= MENU ================= */
 
-.hero h1 {
-  color: white;
-  font-size: clamp(2.2rem, 5vw, 3.8rem);
-  font-weight: 900;
-}
+    .menu {
+      position: fixed;
+      top: 70px;
+      right: 1.5rem;
+      background: white;
+      width: 260px;
+      border-radius: 14px;
+      box-shadow: 0 25px 50px rgba(0,0,0,.25);
+      display: none;
+      flex-direction: column;
+      z-index: 1200;
+    }
 
-/* SECTIONS */
-section {
-  padding: 6rem 2rem;
-}
+    .menu.open {
+      display: flex;
+    }
 
-.container {
-  max-width: 1200px;
-  margin: auto;
-}
+    .menu a {
+      padding: 1.1rem 1.5rem;
+      text-decoration: none;
+      color: var(--navy);
+      font-weight: 700;
+    }
 
-/* ABOUT */
-.about {
-  display: grid;
-  gap: 3rem;
-}
+    .menu a:hover {
+      background: #f0f1f3;
+    }
 
-.about img {
-  width: 100%;
-  height: 520px;
-  object-fit: cover;
-  border-radius: 28px;
-}
+    .menu .donate {
+      margin: 1rem;
+      background: var(--blue);
+      color: white;
+      text-align: center;
+      border-radius: 10px;
+      padding: 0.9rem;
+    }
 
-@media (min-width: 900px) {
-  .about {
-    grid-template-columns: 1fr 1.4fr;
-    align-items: center;
-  }
-}
+    /* ================= ABOUT ================= */
 
-/* STAY UPDATED */
-.stay {
-  background: var(--light);
-  text-align: center;
-}
+    .about {
+      padding: 6rem 2rem;
+      max-width: 1200px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 4rem;
+      align-items: center;
+    }
 
-form {
-  max-width: 420px;
-  margin: 2.5rem auto 0;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
+    .about img {
+      width: 100%;
+      height: 480px;
+      object-fit: cover;
+      border-radius: 28px;
+    }
 
-input, button {
-  padding: 1rem;
-  font-size: 1rem;
-}
+    .about h2 {
+      font-size: 2.2rem;
+      margin-bottom: 1.5rem;
+    }
 
-button {
-  background: var(--blue);
-  color: white;
-  border: none;
-  font-weight: 700;
-  border-radius: 10px;
-  cursor: pointer;
-}
+    .about p {
+      margin-bottom: 1.2rem;
+      font-size: 1.05rem;
+    }
 
-/* FOOTER */
-footer {
-  padding: 3rem 2rem;
-  text-align: center;
-  font-size: 0.9rem;
-}
+    /* ================= STAY UPDATED ================= */
 
-.disclaimer {
-  margin-top: 1.5rem;
-  padding: 0.75rem 1rem;
-  border: 1px solid #ccc;
-  display: inline-block;
-}
-</style>
+    .signup {
+      background: var(--light-gray);
+      padding: 5rem 2rem;
+      text-align: center;
+    }
+
+    .signup h3 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .signup form {
+      max-width: 420px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .signup input {
+      padding: 0.9rem;
+      font-size: 1rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    .signup button {
+      padding: 1rem;
+      background: var(--blue);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    /* ================= FOOTER ================= */
+
+    footer {
+      padding: 3rem 2rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    footer .disclaimer {
+      display: inline-block;
+      padding: 1rem 1.5rem;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+    }
+
+    /* ================= MOBILE ================= */
+
+    @media (max-width: 900px) {
+      .about {
+        grid-template-columns: 1fr;
+      }
+
+      .about img {
+        height: 360px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<header>
-  <div class="logo">Alliance Against Antisemitism PAC</div>
-</header>
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <div class="site-name">Alliance Against Antisemitism PAC</div>
+  </div>
 
-<button class="hamburger" onclick="toggleMenu()">
-  <span></span><span></span><span></span>
-</button>
+  <!-- HAMBURGER -->
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
 
-<nav class="menu" id="menu">
-  <a href="#about">About</a>
-  <a href="#">Leadership</a>
-  <a href="#">News</a>
-  <a href="#">Contact</a>
-  <a href="#donate" class="donate">Donate</a>
-</nav>
+  <!-- MENU -->
+  <nav class="menu" id="menu">
+    <a href="#about">About</a>
+    <a href="#">Leadership</a>
+    <a href="#">News</a>
+    <a href="#">Contact</a>
+    <a href="#" class="donate">Donate</a>
+  </nav>
 
-<section class="hero">
-  <h1>ferdinand-stohr-PeFk7fzxTdk-unsplash.jpg</h1>
-</section>
+  <!-- HERO -->
+  <section class="hero">
+    <h1 class="hero-title">
+      ferdinand-stohr-PeFk7fzxTdk-unsplash.jpg
+    </h1>
+  </section>
 
-<section id="about">
-  <div class="container about">
-    <img src="/mnt/data/shiona-das-0I_GHNL4xTw-unsplash.jpeg" alt="American flags" />
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <img src="images/shiona-das-0I_GHNL4xTw-unsplash.jpg" alt="American flags">
+
     <div>
       <h2>About the Alliance Against Antisemitism PAC</h2>
+
       <p>
-        Antisemitism is not a relic of history — it is a growing threat in our
-        politics, schools, workplaces, and communities. To confront it
-        effectively, we must act.
+        Antisemitism is not a relic of history — it is a growing threat in our politics,
+        schools, workplaces, and communities. To confront it effectively, we must act.
       </p>
+
       <p>
-        This PAC exists because silence is not an option. We support candidates
-        who take antisemitism seriously and reflect moral leadership in political leadership.
+        The Alliance Against Antisemitism PAC is dedicated to fighting antisemitism and
+        ensuring that combating antisemitism remains a national priority rooted in
+        America’s core values of democracy, freedom, and respect for all people.
+      </p>
+
+      <p>
+        This is personal. Antisemitism affects real people and real lives. Silence is not
+        an option. Together, we can make moral leadership political leadership.
       </p>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="stay">
-  <div class="container">
-    <h2>Stay Up to Date</h2>
+  <!-- STAY UPDATED -->
+  <section class="signup">
+    <h3>Stay Up to Date</h3>
+
     <form>
-      <input type="email" placeholder="Email Address" required />
-      <input type="text" placeholder="ZIP Code" required />
+      <input type="email" placeholder="Email address" required>
+      <input type="text" placeholder="ZIP code" required>
       <button type="submit">Join</button>
     </form>
-  </div>
-</section>
+  </section>
 
-<footer id="donate">
-  <div class="disclaimer">
-    Paid for by Alliance Against Antisemitism PAC.
-    Not authorized by any candidate or candidate’s committee.
-  </div>
-</footer>
+  <!-- FOOTER -->
+  <footer>
+    <div class="disclaimer">
+      Paid for by Alliance Against Antisemitism PAC. Not authorized by any candidate or
+      candidate’s committee.
+    </div>
+  </footer>
 
-<script>
-function toggleMenu() {
-  document.getElementById("menu").classList.toggle("open");
-}
-</script>
+  <script>
+    function toggleMenu() {
+      document.getElementById("menu").classList.toggle("open");
+    }
+  </script>
 
 </body>
 </html>
