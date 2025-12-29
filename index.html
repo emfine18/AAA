@@ -98,21 +98,21 @@
       display: inline-block;
     }
 
-    .menu a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -4px;
-      width: 0;
-      height: 3px;
-      background: var(--blue);
-      transition: width 0.25s ease;
-    }
+.menu a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 3px;
+  background: var(--blue);
+  transition: width 0.25s ease;
+}
 
-    .menu a:hover::after {
-      width: 100%;
-    }
-
+.menu a:hover::after {
+  width: 100%;
+}
+    
     .menu .donate {
       margin: 0.5rem 1.25rem 0.6rem;
       background: var(--blue);
@@ -126,14 +126,12 @@
     /* ================= HERO ================= */
 
     .hero {
-      height: 100vh;
-      background:
-        linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)),
-        url("images/ferdinand-stohr-PeFk7fzxTdk-unsplash.jpg")
-          center 65% / cover no-repeat;
-      position: relative;
-      z-index: 1;
-    }
+  height: 85vh; /* or 80vh if you want tighter */
+  background:
+    linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)),
+    url("images/ferdinand-stohr-PeFk7fzxTdk-unsplash.jpg")
+      center center / cover no-repeat;
+}
 
     /* ================= ABOUT ================= */
 
