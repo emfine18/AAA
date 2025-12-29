@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>News – Alliance Against Antisemitism PAC</title>
+
+  <!-- Lato Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --navy: #272a41;
+      --blue: #0096b5;
+      --light: #f6f7f9;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Lato", sans-serif;
+      color: var(--navy);
+      line-height: 1.6;
+    }
+
+    /* ================= HEADER ================= */
+
+    .top-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 0.5rem 1.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 3000;
+      pointer-events: none;
+    }
+
+    .logo-wrap {
+      background: white;
+      padding: 0.4rem 0.9rem;
+      border-radius: 6px;
+      box-shadow: 0 6px 18px rgba(0,0,0,.18);
+      pointer-events: auto;
+    }
+
+    .logo-wrap img {
+      height: 34px;
+      display: block;
+    }
+
+    .hamburger {
+      position: fixed;
+      top: 0.85rem;
+      right: 1.5rem;
+      width: 28px;
+      height: 22px;
+      cursor: pointer;
+      z-index: 4000;
+    }
+
+    .hamburger span {
+      display: block;
+      height: 3px;
+      width: 100%;
+      background: white;
+      margin-bottom: 5px;
+      border-radius: 2px;
+    }
+
+    /* ================= MENU ================= */
+
+    .menu {
+      position: fixed;
+      top: 56px;
+      right: 1.5rem;
+      background: white;
+      width: 190px;
+      border-radius: 14px;
+      box-shadow: 0 20px 40px rgba(0,0,0,.25);
+      display: none;
+      flex-direction: column;
+      padding: 0.5rem 0;
+      z-index: 5000;
+    }
+
+    .menu.open {
+      display: flex;
+    }
+
+    .menu a {
+      padding: 0.85rem 1.25rem;
+      font-weight: 700;
+      color: var(--navy);
+      text-decoration: none;
+      display: block;
+    }
+
+    .menu a span {
+      position: relative;
+      display: inline-block;
+    }
+
+    .menu a span::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 0;
+      height: 3px;
+      background: var(--blue);
+      transition: width 0.25s ease;
+    }
+
+    .menu a:hover span::after {
+      width: 100%;
+    }
+
+    .menu .donate {
+      margin: 0.75rem 1.25rem 0.5rem;
+      background: var(--blue);
+      color: white;
+      text-align: center;
+      border-radius: 14px;
+      padding: 0.75rem;
+      font-weight: 800;
+    }
+
+    /* ================= HERO ================= */
+
+    .hero {
+      height: 40vh;
+      background: var(--light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 900;
+    }
+
+    /* ================= NEWS ================= */
+
+    .news {
+      max-width: 1000px;
+      margin: auto;
+      padding: 5rem 2rem;
+    }
+
+    .news-item {
+      padding: 2.5rem 0;
+      border-bottom: 1px solid #e2e2e2;
+    }
+
+    .news-item:last-child {
+      border-bottom: none;
+    }
+
+    .news-date {
+      font-size: 0.9rem;
+      color: #777;
+      margin-bottom: 0.5rem;
+    }
+
+    .news-title {
+      font-size: 1.8rem;
+      font-weight: 900;
+      margin-bottom: 0.75rem;
+    }
+
+    .news-excerpt {
+      font-size: 1.05rem;
+      color: #444;
+      margin-bottom: 1rem;
+    }
+
+    .news-link {
+      font-weight: 700;
+      color: var(--blue);
+      text-decoration: none;
+    }
+
+    .news-link:hover {
+      text-decoration: underline;
+    }
+
+    /* ================= FOOTER ================= */
+
+    footer {
+      padding: 3rem 2rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    footer .disclaimer {
+      display: inline-block;
+      padding: 1rem 1.5rem;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+    }
+
+    /* ================= MOBILE ================= */
+
+    @media (max-width: 700px) {
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+
+      .news-title {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <div class="top-bar">
+    <div class="logo-wrap">
+      <img src="images/AAALogo.png" alt="Alliance Against Antisemitism PAC Logo">
+    </div>
+  </div>
+
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+
+  <!-- MENU -->
+  <nav class="menu" id="menu">
+    <a href="index.html#about"><span>About</span></a>
+    <a href="leadership.html"><span>Leadership</span></a>
+    <a href="news.html"><span>News</span></a>
+    <a href="contact.html"><span>Contact</span></a>
+    <a href="donate.html" class="donate">Donate</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <h1>News & Updates</h1>
+  </section>
+
+  <!-- NEWS CONTENT -->
+  <section class="news">
+
+    <div class="news-item">
+      <div class="news-date">March 15, 2025</div>
+      <div class="news-title">Alliance Against Antisemitism PAC Launches</div>
+      <div class="news-excerpt">
+        The Alliance Against Antisemitism PAC officially launches with a mission
+        to combat antisemitism and support leaders who take this fight seriously.
+      </div>
+      <a href="#" class="news-link">Read more →</a>
+    </div>
+
+    <div class="news-item">
+      <div class="news-date">February 28, 2025</div>
+      <div class="news-title">Standing Firm Against Hate in Politics</div>
+      <div class="news-excerpt">
+        Antisemitism has no place in American politics. Our PAC is committed to
+        ensuring moral leadership is reflected in political leadership.
+      </div>
+      <a href="#" class="news-link">Read more →</a>
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="disclaimer">
+      Paid for by the Alliance Against Antisemitism Political Action Committee,
+      C/O MBA Consulting, PO Box 15845 Washington, DC 20003.
+      Not authorized by any candidate or candidate’s committee.
+      Contributions are not deductible for federal tax purposes.
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById("menu").classList.toggle("open");
+    }
+  </script>
+
+</body>
+</html>
