@@ -9,28 +9,28 @@
 
 <style>
 :root{
-  --blue-900:#0B3C8C;
+  --blue-900:#1E40AF;
   --blue-700:#2563EB;
   --blue-500:#3B82F6;
-  --blue-300:#93C5FD;
-  --blue-100:#DBEAFE;
+  --tile-blue-1:#3B5BDB;
+  --tile-blue-2:#2F4ED8;
+  --red:#DC2626;
   --white:#FFFFFF;
-  --shadow:0 30px 80px rgba(0,0,0,.12);
+  --shadow:0 25px 70px rgba(0,0,0,.12);
 }
 
-/* RESET */
 *{margin:0;padding:0;box-sizing:border-box}
 
 body{
   font-family:"Lato", system-ui, sans-serif;
-  color:var(--white);
-  background:linear-gradient(135deg, #5B8DEF, #2E55D6);
+  background:#FFFFFF;
+  color:#111827;
   line-height:1.65;
 }
 
 a{text-decoration:none;color:inherit}
 
-/* NAV (FLOATING ON GRADIENT) */
+/* NAV (OVER HERO) */
 header{
   position:absolute;
   top:0;
@@ -45,39 +45,27 @@ header{
   display:flex;
   justify-content:space-between;
   align-items:center;
+  color:white;
 }
 
 .nav strong{
   font-weight:700;
-  font-size:1rem;
 }
 
 .nav nav a{
   margin-left:1.6rem;
   font-weight:400;
-  position:relative;
 }
 
-.nav nav a::after{
-  content:"";
-  position:absolute;
-  left:0;
-  bottom:-6px;
-  width:0;
-  height:3px;
-  background:white;
-  transition:width .25s ease;
-}
-
-.nav nav a:hover::after{
-  width:100%;
-}
-
-/* HERO */
+/* HERO (ONLY GRADIENT AREA) */
 .hero{
   min-height:100vh;
+  background:
+    radial-gradient(circle at top left, #7AA2FF, transparent 60%),
+    linear-gradient(135deg, #3B5BDB, #1E40AF);
   display:flex;
   align-items:center;
+  color:white;
 }
 
 .hero-inner{
@@ -89,50 +77,69 @@ header{
 .hero h1{
   font-size:3.2rem;
   font-weight:700;
-  line-height:1.2;
+  line-height:1.15;
   margin-bottom:1.5rem;
-}
-
-.hero h1 span{
-  display:block;
-  text-decoration:underline;
-  text-decoration-thickness:4px;
-  text-underline-offset:6px;
 }
 
 .hero p{
   font-size:1.15rem;
   max-width:720px;
-  color:var(--blue-100);
+  color:#E5EDFF;
 }
 
-/* SECTION WRAPPER */
+/* SECTIONS */
 .section{
   max-width:1100px;
   margin:auto;
   padding:5rem 2rem;
 }
 
-/* BLUE INFO CARDS */
+/* BLUE TILES */
 .info-card{
-  background:linear-gradient(135deg, #3B6CF6, #2449C6);
-  border-radius:32px;
+  background:linear-gradient(135deg, var(--tile-blue-1), var(--tile-blue-2));
+  color:white;
+  border-radius:36px;
   padding:3rem;
   margin-bottom:2.5rem;
   box-shadow:var(--shadow);
 }
 
-.info-card h2{
-  font-size:1.8rem;
+/* TITLE + HAND-DRAWN UNDERLINE */
+.title{
+  font-size:1.9rem;
   font-weight:700;
-  margin-bottom:1rem;
-  text-decoration:underline;
-  text-underline-offset:6px;
+  letter-spacing:.04em;
+  margin-bottom:1.2rem;
+  position:relative;
+  display:inline-block;
+}
+
+.title span{
+  position:relative;
+}
+
+.title span::after{
+  content:"";
+  position:absolute;
+  left:-2%;
+  bottom:-10px;
+  width:104%;
+  height:8px;
+  background:var(--red);
+  border-radius:12px;
+  transform:scaleX(0);
+  transform-origin:left;
+  transition:transform .6s ease;
+  clip-path:polygon(0 30%,100% 0,98% 70%,2% 100%);
+}
+
+.title.reveal span::after{
+  transform:scaleX(1);
 }
 
 .info-card p{
   font-size:1.05rem;
-  color:#EAF1FF;
+  color:#EEF2FF;
 }
 
 /* MISSION */
@@ -154,47 +161,55 @@ header{
   text-align:center;
 }
 
-.leadership h2{
-  font-size:2.2rem;
-  margin-bottom:2.5rem;
-  text-decoration:underline;
-  text-underline-offset:8px;
-}
-
-.co-chairs{
+.cochairs{
   display:flex;
   justify-content:center;
   gap:3rem;
+  margin-top:3rem;
 }
 
 .circle{
   width:160px;
   height:160px;
   border-radius:50%;
-  background:linear-gradient(135deg, #93C5FD, #3B82F6);
+  background:linear-gradient(135deg,#BFDBFE,#3B82F6);
   box-shadow:var(--shadow);
 }
 
 /* FOOTER */
 footer{
-  text-align:center;
+  background:#0F172A;
+  color:#E5EDFF;
+}
+
+.footer-images{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+}
+
+.footer-images img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+}
+
+.footer-inner{
+  max-width:1100px;
+  margin:auto;
   padding:3rem 2rem;
   font-size:.9rem;
-  color:#EAF1FF;
 }
 
 /* RESPONSIVE */
 @media(max-width:900px){
-  .mission{
+  .mission,
+  .cochairs,
+  .footer-images{
     grid-template-columns:1fr;
-  }
-  .co-chairs{
     flex-direction:column;
     align-items:center;
   }
-  .hero h1{
-    font-size:2.4rem;
-  }
+  .hero h1{font-size:2.4rem}
 }
 </style>
 </head>
@@ -216,8 +231,7 @@ footer{
 <section class="hero">
   <div class="hero-inner">
     <h1>
-      Now is the time to elect candidates<br>
-      <span>who will stand up to antisemitism.</span>
+      Now is the time to elect candidates who will stand up to antisemitism.<br>
       It’s as simple as that.
     </h1>
     <p>
@@ -230,7 +244,7 @@ footer{
 
 <section class="section" id="about">
   <div class="info-card">
-    <h2>A Growing Threat</h2>
+    <h2 class="title"><span>A GROWING THREAT</span></h2>
     <p>
       Antisemitism is not a relic of history. It is present in our politics,
       schools, workplaces, and communities — and it demands political action.
@@ -238,7 +252,7 @@ footer{
   </div>
 
   <div class="info-card">
-    <h2>Political Leadership</h2>
+    <h2 class="title"><span>POLITICAL LEADERSHIP</span></h2>
     <p>
       We support candidates who understand that confronting antisemitism
       is essential to democracy and moral leadership.
@@ -246,7 +260,7 @@ footer{
   </div>
 
   <div class="info-card">
-    <h2>This Is Personal</h2>
+    <h2 class="title"><span>THIS IS PERSONAL</span></h2>
     <p>
       Antisemitism impacts real people and real families. Silence is not enough.
       Elections are where accountability happens.
@@ -257,8 +271,8 @@ footer{
 <section class="section" id="mission">
   <div class="mission">
     <div>
-      <h2 style="text-decoration:underline;text-underline-offset:6px;">Our Mission</h2>
-      <p style="color:#EAF1FF;font-size:1.05rem;">
+      <h2 class="title"><span>OUR MISSION</span></h2>
+      <p>
         The Alliance Against Antisemitism PAC exists to ensure that confronting
         antisemitism remains a national political priority rooted in America’s
         democratic values.
@@ -269,8 +283,8 @@ footer{
 </section>
 
 <section class="section leadership" id="leadership">
-  <h2>Co-Chairs</h2>
-  <div class="co-chairs">
+  <h2 class="title"><span>CO-CHAIRS</span></h2>
+  <div class="cochairs">
     <div class="circle"></div>
     <div class="circle"></div>
     <div class="circle"></div>
@@ -278,9 +292,30 @@ footer{
 </section>
 
 <footer id="contact">
-  <strong>Alliance Against Antisemitism PAC</strong><br>
-  Paid for by the Alliance Against Antisemitism PAC
+  <div class="footer-images">
+    <img src="https://images.unsplash.com/photo-1508261303786-8cde1f34c33c" alt="Voting">
+    <img src="https://images.unsplash.com/photo-1526406915894-6c9bca1db1d9" alt="Capitol">
+    <img src="https://images.unsplash.com/photo-1542224566-6e85f2e6772f" alt="Washington DC">
+  </div>
+
+  <div class="footer-inner">
+    <strong>Alliance Against Antisemitism PAC</strong><br>
+    Paid for by the Alliance Against Antisemitism PAC
+  </div>
 </footer>
+
+<script>
+const titles = document.querySelectorAll('.title');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('reveal');
+    }
+  });
+},{threshold:0.5});
+
+titles.forEach(t => observer.observe(t));
+</script>
 
 </body>
 </html>
