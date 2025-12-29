@@ -43,25 +43,26 @@
       pointer-events: none;
     }
 
-    .logo-wrap {
-      background: white;
-      padding: 0.4rem 0.9rem;
-      border-radius: 6px;
-      display: inline-flex;
-      align-items: center;
-      box-shadow: 0 6px 18px rgba(0,0,0,.18);
-      pointer-events: auto;
-    }
+.logo-wrap {
+  background: white;
+  padding: 0.4rem 0.9rem;
+  border-radius: 6px;          /* clean rectangle, not pill */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 18px rgba(0,0,0,.18);
+  pointer-events: auto;
+}
 
-    .logo-wrap img {
-      height: 34px;
-      width: auto;
-      display: block;
-    }
-
+.logo-wrap img {
+  height: 50px;               /* adjust if needed */
+  width: auto;
+  display: block;
+}
+    
     .hamburger {
       position: fixed;
-      top: 0.85rem;
+      top: 1.5rem;
       right: 1.5rem;
       width: 28px;
       height: 22px;
@@ -73,7 +74,7 @@
       display: block;
       height: 3px;
       width: 100%;
-      background: var(--navy);
+      background: white;
       margin-bottom: 5px;
       border-radius: 2px;
     }
@@ -82,7 +83,7 @@
 
     .menu {
       position: fixed;
-      top: 56px;
+      top: 80px;
       right: 1.5rem;
       background: white;
       width: 190px;
