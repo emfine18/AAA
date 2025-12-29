@@ -9,27 +9,28 @@
 
 <style>
 :root{
+  --blue:#2F4FD8;
+  --blue-dark:#1E3A8A;
   --ink:#0F172A;
   --muted:#475569;
-  --blue:#2F4FD8;
-  --blue-soft:#EEF2FF;
-  --bg:#FFFFFF;
+  --light:#F1F5F9;
+  --white:#FFFFFF;
 }
 
 *{margin:0;padding:0;box-sizing:border-box}
 
 body{
   font-family:"Lato", system-ui, sans-serif;
-  background:var(--bg);
   color:var(--ink);
-  line-height:1.75;
+  background:white;
+  line-height:1.8;
 }
 
-a{color:inherit;text-decoration:none}
+a{text-decoration:none;color:inherit}
 
-/* NAV — VERY QUIET */
+/* NAV */
 header{
-  max-width:900px;
+  max-width:1000px;
   margin:auto;
   padding:2.5rem 2rem 0;
 }
@@ -46,104 +47,178 @@ nav .right{
   gap:1.5rem;
 }
 
-/* HERO — TEXT FIRST */
+nav a{
+  position:relative;
+}
+
+nav a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-4px;
+  width:0;
+  height:2px;
+  background:var(--blue);
+  transition:width .2s ease;
+}
+
+nav a:hover::after{
+  width:100%;
+}
+
+/* HERO */
 .hero{
-  max-width:900px;
+  max-width:1000px;
   margin:auto;
   padding:4rem 2rem 5rem;
 }
 
 .hero h1{
-  font-size:3rem;
+  font-size:3.4rem;
   font-weight:900;
-  line-height:1.15;
-  margin-bottom:1.75rem;
+  line-height:1.1;
+  margin-bottom:2rem;
+}
+
+.hero h1 span{
+  display:block;
+  color:var(--blue);
 }
 
 .hero p{
-  font-size:1.15rem;
+  font-size:1.25rem;
+  max-width:720px;
   color:var(--muted);
-  max-width:640px;
 }
 
-/* SECTION */
-.section{
+/* STATEMENT */
+.statement{
+  background:var(--light);
+  padding:5rem 2rem;
+}
+
+.statement-inner{
   max-width:900px;
   margin:auto;
-  padding:4.5rem 2rem;
+  font-size:1.35rem;
+  line-height:1.9;
 }
 
-/* NYSN-STYLE BLOCKS */
-.blocks{
+.statement strong{
+  font-weight:900;
+}
+
+/* VALUES */
+.values{
+  max-width:1100px;
+  margin:auto;
+  padding:5rem 2rem;
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:3rem;
 }
 
-.block{
+.value{
   background:var(--blue);
   color:white;
-  padding:3rem;
+  padding:3.5rem 3rem;
 }
 
-.block h2{
-  font-size:1.35rem;
+.value h2{
+  font-size:1.6rem;
   font-weight:900;
   margin-bottom:1.25rem;
 }
 
-.block p{
+.value p{
   font-size:1.05rem;
   color:#E8EEFF;
   max-width:26ch;
 }
 
-/* MISSION — BIG TEXT */
-.mission{
-  font-size:1.25rem;
-  line-height:1.8;
+/* HUMAN MOMENT */
+.human{
+  max-width:900px;
+  margin:auto;
+  padding:5rem 2rem;
+  font-size:1.3rem;
+  line-height:1.9;
 }
 
-.mission strong{
+.human p{
+  margin-bottom:1.5rem;
+}
+
+/* MISSION */
+.mission{
+  background:var(--light);
+  padding:5rem 2rem;
+}
+
+.mission-inner{
+  max-width:900px;
+  margin:auto;
+}
+
+.mission h2{
+  font-size:2rem;
   font-weight:900;
+  margin-bottom:1.5rem;
+}
+
+.mission p{
+  font-size:1.15rem;
+  color:var(--muted);
+  max-width:720px;
 }
 
 /* LEADERSHIP */
 .leadership{
-  padding-top:2rem;
+  max-width:900px;
+  margin:auto;
+  padding:5rem 2rem;
+}
+
+.leadership h2{
+  font-size:2rem;
+  font-weight:900;
+  margin-bottom:2rem;
 }
 
 .faces{
   display:flex;
   gap:2.5rem;
-  margin-top:2rem;
 }
 
 .face{
-  width:120px;
-  height:120px;
+  width:130px;
+  height:130px;
   border-radius:50%;
   background:#CBD5F5;
 }
 
-/* FOOTER — TEXT HEAVY */
+/* FOOTER */
 footer{
-  max-width:900px;
-  margin:auto;
+  background:#0B1220;
+  color:#CBD5F5;
   padding:5rem 2rem;
-  font-size:.9rem;
-  color:var(--muted);
 }
 
-footer strong{
-  color:var(--ink);
+.footer-inner{
+  max-width:900px;
+  margin:auto;
+  font-size:.9rem;
+}
+
+.footer-inner strong{
+  color:white;
 }
 
 /* RESPONSIVE */
 @media(max-width:900px){
-  .blocks{grid-template-columns:1fr}
+  .values{grid-template-columns:1fr}
   .faces{flex-direction:column}
-  .hero h1{font-size:2.3rem}
+  .hero h1{font-size:2.4rem}
 }
 </style>
 </head>
@@ -164,52 +239,81 @@ footer strong{
 
 <section class="hero">
   <h1>
-    Now is the time to elect candidates who will stand up to antisemitism.
-    It’s as simple as that.
+    Antisemitism is rising in America.
+    <span>Silence is no longer an option.</span>
   </h1>
   <p>
-    Antisemitism is not a relic of history. It is a growing threat in our
-    politics, schools, workplaces, and communities — and confronting it
-    requires political action.
+    This PAC exists to make confronting antisemitism a political requirement —
+    not a talking point, not a press release, and not something leaders can ignore
+    when it’s inconvenient.
   </p>
 </section>
 
-<section class="section">
-  <div class="blocks">
-    <div class="block">
-      <h2>A GROWING THREAT</h2>
-      <p>
-        Antisemitism is present across our public life and political discourse.
-      </p>
-    </div>
-
-    <div class="block">
-      <h2>POLITICAL RESPONSIBILITY</h2>
-      <p>
-        Combating antisemitism must be reflected in political leadership.
-      </p>
-    </div>
-
-    <div class="block">
-      <h2>THIS IS PERSONAL</h2>
-      <p>
-        Antisemitism affects real people, families, and communities.
-      </p>
-    </div>
+<section class="statement">
+  <div class="statement-inner">
+    Antisemitism is not abstract. It shows up in classrooms, on campuses,
+    in public office, and online. It shapes who feels safe, who feels targeted,
+    and who is told — directly or indirectly — that they do not belong.
+    <br><br>
+    <strong>
+      Democracy fails when hate goes unanswered.
+      Elections are where accountability begins.
+    </strong>
   </div>
 </section>
 
-<section class="section mission" id="mission">
+<section class="values">
+  <div class="value">
+    <h2>Antisemitism is a political issue</h2>
+    <p>
+      When elected leaders excuse, minimize, or ignore antisemitism,
+      they create the conditions for it to grow.
+    </p>
+  </div>
+
+  <div class="value">
+    <h2>Leadership requires action</h2>
+    <p>
+      Statements are not enough. Confronting antisemitism demands
+      courage, clarity, and accountability.
+    </p>
+  </div>
+
+  <div class="value">
+    <h2>Neutrality enables harm</h2>
+    <p>
+      Silence in the face of antisemitism is not neutrality —
+      it is permission.
+    </p>
+  </div>
+</section>
+
+<section class="human">
   <p>
-    <strong>The Alliance Against Antisemitism PAC</strong> exists to ensure that
-    confronting antisemitism remains a national political priority rooted in
-    America’s democratic values. We support candidates who take this fight
-    seriously — because silence is not enough, and statements are not enough.
+    Antisemitism isn’t theoretical. It affects how people live, work,
+    organize, and move through the world.
+  </p>
+  <p>
+    It affects parents deciding whether their kids are safe at school.
+    It affects students wondering if they belong.
+    It affects communities deciding whether anyone in power will show up for them.
   </p>
 </section>
 
-<section class="section leadership" id="leadership">
-  <h2 style="font-weight:900;">Leadership</h2>
+<section class="mission" id="mission">
+  <div class="mission-inner">
+    <h2>Our Commitment</h2>
+    <p>
+      The Alliance Against Antisemitism PAC exists to ensure that antisemitism
+      is confronted with the seriousness it demands — in elections, in policy,
+      and in leadership. We support candidates who understand that moral leadership
+      must be reflected in political leadership.
+    </p>
+  </div>
+</section>
+
+<section class="leadership" id="leadership">
+  <h2>Leadership</h2>
   <div class="faces">
     <div class="face"></div>
     <div class="face"></div>
@@ -218,9 +322,11 @@ footer strong{
 </section>
 
 <footer id="contact">
-  <strong>Alliance Against Antisemitism PAC</strong><br><br>
-  Paid for by the Alliance Against Antisemitism PAC.<br>
-  Not authorized by any candidate or candidate’s committee.
+  <div class="footer-inner">
+    <strong>Alliance Against Antisemitism PAC</strong><br><br>
+    Paid for by the Alliance Against Antisemitism PAC.<br>
+    Not authorized by any candidate or candidate’s committee.
+  </div>
 </footer>
 
 </body>
