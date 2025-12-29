@@ -126,11 +126,15 @@
     /* ================= HERO ================= */
 
 .hero {
-  height: 70vh;
-  background:
-    linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)),
-    url("images/ferdinand-unsplash.jpg")
-      center center / cover no-repeat;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.hero-image {
+  width: 100%;
+  height: auto;   /* THIS is the key */
+  display: block;
 }
 
     /* ================= ABOUT ================= */
@@ -286,8 +290,14 @@
     <a href="#" class="donate">Donate</a>
   </nav>
 
-  <section class="hero"></section>
-
+<section class="hero">
+  <img
+    src="images/ferdinand-unsplash.jpeg"
+    alt="Statue of Liberty"
+    class="hero-image"
+  />
+</section>
+  
   <section class="about" id="about">
     <img src="images/shiona-das-0I_GHNL4xTw-unsplash.jpg" alt="American flags">
 <div>
