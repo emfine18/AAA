@@ -32,6 +32,7 @@
     .hero {
       position: relative;
       height: 100vh;
+      padding-top: 2.5rem; /* instead of none / too much */
       background:
         linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)),
         url("images/ferdinand-stohr-PeFk7fzxTdk-unsplash.jpg") center/cover no-repeat;
@@ -51,17 +52,16 @@
     /* ================= TOP BAR ================= */
 
     .top-bar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      padding: 1.25rem 1.5rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-      pointer-events: none;
-    }
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 0.75rem 1.5rem; /* reduced */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
 
     .site-name {
       color: white;
@@ -91,42 +91,59 @@
 
     /* ================= MENU ================= */
 
-    .menu {
-      position: fixed;
-      top: 70px;
-      right: 1.5rem;
-      background: white;
-      width: 260px;
-      border-radius: 14px;
-      box-shadow: 0 25px 50px rgba(0,0,0,.25);
-      display: none;
-      flex-direction: column;
-      z-index: 1200;
-    }
+.menu {
+  position: fixed;
+  top: 64px;
+  right: 1.25rem;
+  background: white;
+  width: 220px;              /* narrower */
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0,0,0,.2);
+  display: none;
+  flex-direction: column;
+  padding: 0.5rem 0;
+}
 
-    .menu.open {
-      display: flex;
-    }
+.menu.open {
+  display: flex;
+}
 
-    .menu a {
-      padding: 1.1rem 1.5rem;
-      text-decoration: none;
-      color: var(--navy);
-      font-weight: 700;
-    }
+.menu a {
+  padding: 0.85rem 1.25rem;
+  text-decoration: none;
+  color: #272a41;
+  font-weight: 700;
+  position: relative;
+}
 
-    .menu a:hover {
-      background: #f0f1f3;
-    }
+.menu a::after {
+  content: "";
+  position: absolute;
+  left: 1.25rem;
+  bottom: 6px;
+  width: 0;
+  height: 2px;
+  background: #0096b5;
+  transition: width 0.25s ease;
+}
 
-    .menu .donate {
-      margin: 1rem;
-      background: var(--blue);
-      color: white;
-      text-align: center;
-      border-radius: 10px;
-      padding: 0.9rem;
-    }
+.menu a:hover::after {
+  width: calc(100% - 2.5rem);
+}
+
+.menu a:hover {
+  background: transparent; /* removes grey bar */
+}
+
+.menu .donate {
+  margin: 0.75rem 1.25rem 0.5rem;
+  background: #0096b5;
+  color: white;
+  text-align: center;
+  border-radius: 999px;     /* pill button */
+  padding: 0.75rem;
+  font-weight: 800;
+}
 
     /* ================= ABOUT ================= */
 
@@ -147,10 +164,11 @@
       border-radius: 28px;
     }
 
-    .about h2 {
-      font-size: 2.2rem;
-      margin-bottom: 1.5rem;
-    }
+   .about h2 {
+  font-size: 2.4rem;
+  font-weight: 900; /* was too light */
+  margin-bottom: 1.5rem;
+}
 
     .about p {
       margin-bottom: 1.2rem;
@@ -251,9 +269,6 @@
 
   <!-- HERO -->
   <section class="hero">
-    <h1 class="hero-title">
-      ferdinand-stohr-PeFk7fzxTdk-unsplash.jpg
-    </h1>
   </section>
 
   <!-- ABOUT -->
@@ -282,16 +297,50 @@
   </section>
 
   <!-- STAY UPDATED -->
-  <section class="signup">
-    <h3>Stay Up to Date</h3>
+.signup {
+  background: #f6f7f9;
+  padding: 4rem 2rem;
+  text-align: center;
+}
 
-    <form>
-      <input type="email" placeholder="Email address" required>
-      <input type="text" placeholder="ZIP code" required>
-      <button type="submit">Join</button>
-    </form>
-  </section>
+.signup h3 {
+  font-size: 2.2rem;
+  font-weight: 900;
+  margin-bottom: 2rem;
+}
 
+.signup-form {
+  max-width: 720px;
+  margin: auto;
+  display: flex;
+  gap: 1rem;
+}
+
+.signup-form input {
+  flex: 1;
+  padding: 0.85rem 1rem;
+  font-size: 1rem;
+  border-radius: 999px;
+  border: 1px solid #ccc;
+}
+
+.signup-form button {
+  padding: 0.85rem 2.25rem;
+  background: #0096b5;
+  color: white;
+  border: none;
+  border-radius: 999px;
+  font-size: 1rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+/* Mobile fallback */
+@media (max-width: 700px) {
+  .signup-form {
+    flex-direction: column;
+  }
+}
   <!-- FOOTER -->
   <footer>
     <div class="disclaimer">
