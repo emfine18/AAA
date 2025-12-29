@@ -5,18 +5,18 @@
 <title>Alliance Against Antisemitism PAC</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
 
 <style>
 :root{
-  --blue-900:#1E40AF;
+  --blue-900:#1E3A8A;
   --blue-700:#2563EB;
   --blue-500:#3B82F6;
-  --tile-blue-1:#3B5BDB;
-  --tile-blue-2:#2F4ED8;
-  --red:#DC2626;
+  --tile-blue-1:#3F5BD6;
+  --tile-blue-2:#2B49C8;
   --white:#FFFFFF;
-  --shadow:0 25px 70px rgba(0,0,0,.12);
+  --dark:#0F172A;
+  --shadow:0 30px 80px rgba(0,0,0,.15);
 }
 
 *{margin:0;padding:0;box-sizing:border-box}
@@ -24,13 +24,13 @@
 body{
   font-family:"Lato", system-ui, sans-serif;
   background:#FFFFFF;
-  color:#111827;
+  color:var(--dark);
   line-height:1.65;
 }
 
 a{text-decoration:none;color:inherit}
 
-/* NAV (OVER HERO) */
+/* HEADER / NAV */
 header{
   position:absolute;
   top:0;
@@ -48,16 +48,69 @@ header{
   color:white;
 }
 
-.nav strong{
+/* LOGO */
+.logo{
+  display:flex;
+  align-items:center;
+  gap:.6rem;
+  font-weight:900;
+  letter-spacing:.02em;
+}
+
+.logo svg{
+  width:28px;
+  height:28px;
+  fill:white;
+}
+
+/* MENU */
+nav{
+  display:flex;
+  align-items:center;
+  gap:1.8rem;
   font-weight:700;
 }
 
-.nav nav a{
-  margin-left:1.6rem;
-  font-weight:400;
+nav .dropdown{
+  position:relative;
 }
 
-/* HERO (ONLY GRADIENT AREA) */
+nav .dropdown span{
+  cursor:pointer;
+}
+
+nav .dropdown-content{
+  position:absolute;
+  top:140%;
+  left:0;
+  background:white;
+  color:var(--dark);
+  border-radius:10px;
+  box-shadow:var(--shadow);
+  padding:.6rem 0;
+  min-width:160px;
+  display:none;
+}
+
+nav .dropdown-content a{
+  display:block;
+  padding:.6rem 1rem;
+  font-weight:700;
+}
+
+nav .dropdown:hover .dropdown-content{
+  display:block;
+}
+
+.donate{
+  background:white;
+  color:var(--blue-900);
+  padding:.5rem 1.2rem;
+  border-radius:999px;
+  font-weight:900;
+}
+
+/* HERO */
 .hero{
   min-height:100vh;
   background:
@@ -75,8 +128,8 @@ header{
 }
 
 .hero h1{
-  font-size:3.2rem;
-  font-weight:700;
+  font-size:3.3rem;
+  font-weight:900;
   line-height:1.15;
   margin-bottom:1.5rem;
 }
@@ -87,93 +140,38 @@ header{
   color:#E5EDFF;
 }
 
-/* SECTIONS */
+/* SECTION */
 .section{
-  max-width:1100px;
+  max-width:1200px;
   margin:auto;
   padding:5rem 2rem;
 }
 
-/* BLUE TILES */
-.info-card{
-  background:linear-gradient(135deg, var(--tile-blue-1), var(--tile-blue-2));
+/* HORIZONTAL TILES */
+.tile-row{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:2.5rem;
+}
+
+.tile{
+  background:linear-gradient(135deg,var(--tile-blue-1),var(--tile-blue-2));
   color:white;
-  border-radius:36px;
+  border-radius:40px;
   padding:3rem;
-  margin-bottom:2.5rem;
   box-shadow:var(--shadow);
 }
 
-/* TITLE + HAND-DRAWN UNDERLINE */
-.title{
-  font-size:1.9rem;
-  font-weight:700;
+.tile h2{
+  font-size:1.8rem;
+  font-weight:900;
   letter-spacing:.04em;
-  margin-bottom:1.2rem;
-  position:relative;
-  display:inline-block;
+  margin-bottom:1rem;
 }
 
-.title span{
-  position:relative;
-}
-
-.title span::after{
-  content:"";
-  position:absolute;
-  left:-2%;
-  bottom:-10px;
-  width:104%;
-  height:8px;
-  background:var(--red);
-  border-radius:12px;
-  transform:scaleX(0);
-  transform-origin:left;
-  transition:transform .6s ease;
-  clip-path:polygon(0 30%,100% 0,98% 70%,2% 100%);
-}
-
-.title.reveal span::after{
-  transform:scaleX(1);
-}
-
-.info-card p{
+.tile p{
   font-size:1.05rem;
   color:#EEF2FF;
-}
-
-/* MISSION */
-.mission{
-  display:grid;
-  grid-template-columns:1.2fr 1fr;
-  gap:3rem;
-  align-items:center;
-}
-
-.mission img{
-  width:100%;
-  border-radius:28px;
-  box-shadow:var(--shadow);
-}
-
-/* LEADERSHIP */
-.leadership{
-  text-align:center;
-}
-
-.cochairs{
-  display:flex;
-  justify-content:center;
-  gap:3rem;
-  margin-top:3rem;
-}
-
-.circle{
-  width:160px;
-  height:160px;
-  border-radius:50%;
-  background:linear-gradient(135deg,#BFDBFE,#3B82F6);
-  box-shadow:var(--shadow);
 }
 
 /* FOOTER */
@@ -202,14 +200,15 @@ footer{
 
 /* RESPONSIVE */
 @media(max-width:900px){
-  .mission,
-  .cochairs,
-  .footer-images{
+  .tile-row{
     grid-template-columns:1fr;
-    flex-direction:column;
-    align-items:center;
   }
-  .hero h1{font-size:2.4rem}
+  .hero h1{
+    font-size:2.4rem;
+  }
+  nav{
+    display:none;
+  }
 }
 </style>
 </head>
@@ -218,12 +217,25 @@ footer{
 
 <header>
   <div class="nav">
-    <strong>Alliance Against Antisemitism PAC</strong>
+    <div class="logo">
+      <!-- Inline SVG Logo -->
+      <svg viewBox="0 0 24 24">
+        <path d="M12 2L3 6v6c0 5.25 3.75 9.75 9 11 5.25-1.25 9-5.75 9-11V6l-9-4zm0 5l2.2 4.4L19 12l-4.8.6L12 17l-2.2-4.4L5 12l4.8-.6L12 7z"/>
+      </svg>
+      Alliance Against Antisemitism PAC
+    </div>
+
     <nav>
-      <a href="#about">About</a>
-      <a href="#mission">Mission</a>
-      <a href="#leadership">Leadership</a>
+      <div class="dropdown">
+        <span>About</span>
+        <div class="dropdown-content">
+          <a href="#mission">Mission</a>
+          <a href="#leadership">Leadership</a>
+        </div>
+      </div>
+      <a href="#news">News</a>
       <a href="#contact">Contact</a>
+      <a href="#donate" class="donate">Donate</a>
     </nav>
   </div>
 </header>
@@ -242,56 +254,35 @@ footer{
   </div>
 </section>
 
-<section class="section" id="about">
-  <div class="info-card">
-    <h2 class="title"><span>A GROWING THREAT</span></h2>
-    <p>
-      Antisemitism is not a relic of history. It is present in our politics,
-      schools, workplaces, and communities — and it demands political action.
-    </p>
-  </div>
-
-  <div class="info-card">
-    <h2 class="title"><span>POLITICAL LEADERSHIP</span></h2>
-    <p>
-      We support candidates who understand that confronting antisemitism
-      is essential to democracy and moral leadership.
-    </p>
-  </div>
-
-  <div class="info-card">
-    <h2 class="title"><span>THIS IS PERSONAL</span></h2>
-    <p>
-      Antisemitism impacts real people and real families. Silence is not enough.
-      Elections are where accountability happens.
-    </p>
-  </div>
-</section>
-
-<section class="section" id="mission">
-  <div class="mission">
-    <div>
-      <h2 class="title"><span>OUR MISSION</span></h2>
+<section class="section">
+  <div class="tile-row">
+    <div class="tile">
+      <h2>A GROWING THREAT</h2>
       <p>
-        The Alliance Against Antisemitism PAC exists to ensure that confronting
-        antisemitism remains a national political priority rooted in America’s
-        democratic values.
+        Antisemitism is not a relic of history. It is present in our politics,
+        schools, workplaces, and communities — and it demands political action.
       </p>
     </div>
-    <img src="https://images.unsplash.com/photo-1526406915894-6c9bca1db1d9" alt="U.S. Capitol">
+
+    <div class="tile">
+      <h2>POLITICAL LEADERSHIP</h2>
+      <p>
+        We support candidates who understand that confronting antisemitism
+        is essential to democracy and moral leadership.
+      </p>
+    </div>
+
+    <div class="tile">
+      <h2>THIS IS PERSONAL</h2>
+      <p>
+        Antisemitism impacts real people and real families. Silence is not enough.
+        Elections are where accountability happens.
+      </p>
+    </div>
   </div>
 </section>
 
-<section class="section leadership" id="leadership">
-  <h2 class="title"><span>CO-CHAIRS</span></h2>
-  <div class="cochairs">
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-  </div>
-</section>
-
-<footer id="contact">
+<footer>
   <div class="footer-images">
     <img src="https://images.unsplash.com/photo-1508261303786-8cde1f34c33c" alt="Voting">
     <img src="https://images.unsplash.com/photo-1526406915894-6c9bca1db1d9" alt="Capitol">
@@ -303,19 +294,6 @@ footer{
     Paid for by the Alliance Against Antisemitism PAC
   </div>
 </footer>
-
-<script>
-const titles = document.querySelectorAll('.title');
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      entry.target.classList.add('reveal');
-    }
-  });
-},{threshold:0.5});
-
-titles.forEach(t => observer.observe(t));
-</script>
 
 </body>
 </html>
