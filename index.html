@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Alliance Against Antisemitism PAC</title>
 
-  <!-- Lato -->
+  <!-- Lato Font -->
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
 
   <style>
@@ -129,15 +129,10 @@
     /* ================= HERO ================= */
 
     .hero {
-      margin-top: 48px;          /* accounts for fixed header */
-      max-height: 60vh;          /* SHORTER HEADER */
-      overflow: hidden;
-    }
-
-    .hero img {
-      width: 100%;
-      height: auto;
-      display: block;
+      height: 70vh;
+      background:
+        linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)),
+        url("images/ferdinand-unsplash.jpg") center center / cover no-repeat;
     }
 
     /* ================= ABOUT ================= */
@@ -286,6 +281,7 @@
     <span></span><span></span><span></span>
   </div>
 
+  <!-- MENU -->
   <nav class="menu" id="menu">
     <a href="#about"><span>About</span></a>
     <a href="#"><span>Leadership</span></a>
@@ -295,9 +291,7 @@
   </nav>
 
   <!-- HERO -->
-  <section class="hero">
-    <img src="images/ferdinand-unsplash.jpg" alt="Statue of Liberty">
-  </section>
+  <section class="hero"></section>
 
   <!-- ABOUT -->
   <section class="about" id="about">
@@ -353,6 +347,7 @@
       Paid for by the Alliance Against Antisemitism Political Action Committee,
       C/O MBA Consulting, PO Box 15845 Washington, DC 20003.
       Not authorized by any candidate or candidate’s committee.
+      Contributions are not deductible for federal tax purposes.
     </div>
   </footer>
 
