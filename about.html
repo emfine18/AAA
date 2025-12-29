@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About – Alliance Against Antisemitism PAC</title>
+
+  <!-- Lato Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --navy: #272a41;
+      --blue: #0096b5;
+      --light: #f6f7f9;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Lato", sans-serif;
+      color: var(--navy);
+      line-height: 1.6;
+    }
+
+    /* ================= HEADER ================= */
+
+    .top-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 0.5rem 1.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 3000;
+      pointer-events: none;
+    }
+
+    .logo-wrap {
+      background: white;
+      padding: 0.4rem 0.9rem;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 18px rgba(0,0,0,.18);
+      pointer-events: auto;
+    }
+
+    .logo-wrap img {
+      height: 50px;
+      width: auto;
+      display: block;
+    }
+
+    .hamburger {
+      position: fixed;
+      top: 1.5rem;
+      right: 1.5rem;
+      width: 28px;
+      height: 22px;
+      cursor: pointer;
+      z-index: 4000;
+    }
+
+    .hamburger span {
+      display: block;
+      height: 3px;
+      width: 100%;
+      background: white;
+      margin-bottom: 5px;
+      border-radius: 2px;
+    }
+
+    /* ================= MENU ================= */
+
+    .menu {
+      position: fixed;
+      top: 80px;
+      right: 1.5rem;
+      background: white;
+      width: 190px;
+      border-radius: 14px;
+      box-shadow: 0 20px 40px rgba(0,0,0,.25);
+      display: none;
+      flex-direction: column;
+      padding: 0.5rem 0;
+      z-index: 5000;
+    }
+
+    .menu.open {
+      display: flex;
+    }
+
+    .menu a {
+      padding: 0.85rem 1.25rem;
+      font-weight: 700;
+      color: var(--navy);
+      text-decoration: none;
+      display: block;
+    }
+
+    .menu a span {
+      position: relative;
+      display: inline-block;
+    }
+
+    .menu a span::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 0;
+      height: 3px;
+      background: var(--blue);
+      transition: width 0.25s ease;
+    }
+
+    .menu a:hover span::after {
+      width: 100%;
+    }
+
+    .menu .donate {
+      margin: 0.75rem 1.25rem 0.5rem;
+      background: var(--blue);
+      color: white;
+      text-align: center;
+      border-radius: 14px;
+      padding: 0.75rem;
+      font-weight: 800;
+    }
+
+    /* ================= HERO ================= */
+
+    .hero {
+      height: 45vh;
+      background:
+        linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)),
+        url("images/ferdinand-unsplash.jpg") center center / cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .hero h1 {
+      color: white;
+      font-size: 3rem;
+      font-weight: 900;
+    }
+
+    /* ================= ABOUT ================= */
+
+    .about {
+      max-width: 900px;
+      margin: auto;
+      padding: 6rem 2rem;
+    }
+
+    .about h2 {
+      font-size: 2.4rem;
+      font-weight: 900;
+      margin-bottom: 1.5rem;
+    }
+
+    .about p {
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+      color: #444;
+    }
+
+    /* ================= FOOTER ================= */
+
+    footer {
+      padding: 3rem 2rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    footer .disclaimer {
+      display: inline-block;
+      padding: 1rem 1.5rem;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+    }
+
+    /* ================= MOBILE ================= */
+
+    @media (max-width: 700px) {
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+
+      .about h2 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div class="top-bar">
+  <a href="index.html" class="logo-wrap">
+    <img src="images/AAALogo.png" alt="Alliance Against Antisemitism PAC Logo">
+  </a>
+</div>
+
+<!-- HAMBURGER -->
+<div class="hamburger" onclick="toggleMenu()">
+  <span></span><span></span><span></span>
+</div>
+
+<!-- MENU -->
+<nav class="menu" id="menu">
+  <a href="index.html"><span>Home</span></a>
+  <a href="about.html"><span>About</span></a>
+  <a href="leadership.html"><span>Leadership</span></a>
+  <a href="news.html"><span>News</span></a>
+  <a href="contact.html"><span>Contact</span></a>
+  <a href="donate.html" class="donate">Donate</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>About Us</h1>
+</section>
+
+<!-- ABOUT CONTENT -->
+<section class="about">
+  <h2>Alliance Against Antisemitism PAC</h2>
+
+  <p>
+    Antisemitism is not a relic of history — it is a growing threat in our politics,
+    schools, workplaces, and communities. To confront it effectively, we must act.
+  </p>
+
+  <p>
+    The Alliance Against Antisemitism PAC is dedicated to fighting antisemitism.
+    It ensures that combating antisemitism remains a national priority rooted in
+    America’s core values of democracy, freedom, and respect for all people.
+    By supporting candidates who take this fight seriously, we help make sure
+    that moral leadership is reflected in political leadership.
+  </p>
+
+  <p>
+    But this isn’t only about policy. It’s personal. Antisemitism touches real people,
+    real families, and real lives. This PAC exists because silence is not an option,
+    and statements are not enough. We believe that every person deserves to live
+    free from hate and fear — and that together, we can make that a political reality.
+    Together, we can send a message that antisemitism — and all forms of hate —
+    have no place in our politics or our country.
+  </p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="disclaimer">
+    Paid for by the Alliance Against Antisemitism Political Action Committee,
+    C/O MBA Consulting, PO Box 15845 Washington, DC 20003.
+    Not authorized by any candidate or candidate’s committee.
+    Contributions are not deductible for federal tax purposes.
+  </div>
+</footer>
+
+<script>
+  function toggleMenu() {
+    document.getElementById("menu").classList.toggle("open");
+  }
+</script>
+
+</body>
+</html>
