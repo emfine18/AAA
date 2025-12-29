@@ -2,16 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Alliance Against Antisemitism PAC</title>
 
   <style>
     :root {
       --navy: #0A2342;
-      --blue: #0095B4;
+      --white: #fff;
       --gold: #D4AF37;
-      --gray: #F2F4F8;
-      --white: #ffffff;
+      --gray: #F5F5F5;
       --text: #1E1E1E;
     }
 
@@ -27,13 +26,12 @@
       line-height: 1.6;
     }
 
-    /* NAV */
     header {
       position: sticky;
       top: 0;
-      z-index: 100;
       background: var(--white);
-      box-shadow: 0 2px 10px rgba(0,0,0,.08);
+      box-shadow: 0 2px 8px rgba(0,0,0,.1);
+      z-index: 100;
     }
 
     .nav {
@@ -45,50 +43,86 @@
       align-items: center;
     }
 
-    .logo {
-      font-weight: 900;
-      font-size: 1.1rem;
-      color: var(--navy);
-    }
-
     .nav a {
-      margin-left: 1rem;
       text-decoration: none;
-      font-weight: 600;
       color: var(--navy);
+      font-weight: 600;
+      margin-left: 1rem;
     }
 
     .donate-btn {
       background: var(--gold);
-      color: #000;
-      padding: 0.6rem 1.2rem;
+      padding: 0.6rem 1.25rem;
       border-radius: 4px;
+      font-weight: bold;
+      color: black;
     }
 
-    /* HERO */
+    /* Hero Section */
     .hero {
-      background: linear-gradient(rgba(10,35,66,.85), rgba(10,35,66,.85)),
-        url("hero.jpg") center/cover no-repeat;
-      color: white;
-      padding: 4rem 1.5rem;
+      position: relative;
+      width: 100%;
+      height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       text-align: center;
+      color: white;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,.35);
+    }
+
+    .hero .content {
+      position: relative;
+      z-index: 2;
+      padding: 1rem;
+      max-width: 800px;
     }
 
     .hero h1 {
-      font-size: clamp(2rem, 5vw, 3.5rem);
-      margin-bottom: 1rem;
+      font-size: clamp(2.5rem,5vw,4rem);
+      margin: 0;
       font-weight: 900;
     }
 
     .hero p {
-      max-width: 800px;
-      margin: auto;
-      font-size: 1.1rem;
+      font-size: 1.2rem;
+      margin-top: 0.5rem;
     }
 
-    /* SECTIONS */
+    /* Logo Block */
+    .logo-circle {
+      width: 120px;
+      height: 120px;
+      background: var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: auto;
+    }
+
+    .logo-circle svg {
+      width: 80px;
+      height: 80px;
+    }
+
     section {
-      padding: 4rem 1.5rem;
+      padding: 3rem 1.5rem;
+    }
+
+    h2 {
+      color: var(--navy);
+      font-size: 2rem;
+      margin-bottom: 1rem;
     }
 
     .container {
@@ -96,63 +130,17 @@
       margin: auto;
     }
 
-    h2 {
-      font-size: clamp(1.8rem, 4vw, 2.6rem);
-      color: var(--navy);
-      margin-bottom: 1rem;
-    }
-
-    .feature {
-      font-size: 1.4rem;
-      font-weight: 800;
-    }
-
-    .highlight {
-      background: var(--blue);
-      color: white;
-      padding: 0.2rem 0.6rem;
-      display: inline-block;
-    }
-
-    /* GRID */
     .grid {
       display: grid;
       gap: 2rem;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
     }
 
-    .card {
-      background: var(--gray);
-      padding: 2rem;
-      border-radius: 6px;
-    }
-
-    /* FORM */
-    form {
-      display: grid;
-      gap: 1rem;
-      max-width: 500px;
-    }
-
-    input, button {
-      padding: 0.75rem;
-      font-size: 1rem;
-    }
-
-    button {
-      background: var(--blue);
-      color: white;
-      border: none;
-      cursor: pointer;
-      font-weight: 700;
-    }
-
-    /* FOOTER */
     footer {
       background: var(--navy);
       color: white;
-      padding: 3rem 1.5rem;
       text-align: center;
+      padding: 2.5rem 1rem;
       font-size: 0.9rem;
     }
 
@@ -162,11 +150,9 @@
     }
 
     .disclaimer {
-      margin-top: 1.5rem;
-      border: 1px solid rgba(255,255,255,.3);
-      padding: 1rem;
-      display: inline-block;
+      margin-top: 1rem;
       font-size: 0.85rem;
+      opacity: .85;
     }
   </style>
 </head>
@@ -174,88 +160,77 @@
 
 <header>
   <div class="nav">
-    <div class="logo">Alliance Against Antisemitism PAC</div>
+    <div><strong>Alliance Against Antisemitism PAC</strong></div>
     <nav>
       <a href="#about">About</a>
       <a href="#mission">Mission</a>
-      <a href="#updates">Updates</a>
       <a href="#donate" class="donate-btn">Donate</a>
     </nav>
   </div>
 </header>
 
-<section class="hero">
-  <h1>Fighting Antisemitism. Defending Democracy.</h1>
-  <p>
-    We support candidates of any party who oppose antisemitism,
-    reject political extremism, and strengthen America’s democratic values.
-  </p>
-</section>
+<!-- Hero Images (rotate if you want different pages) -->
+<div class="hero" style="background-image: url('https://images.unsplash.com/photo-1505964261931-59b7af849cc8?auto=format&fit=crop&w=1600&q=80');">
+  <div class="content">
+    <div class="logo-circle">
+      <!-- Simple Shield/Star Logo -->
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="50" cy="50" r="48" fill="var(--gold)"/>
+        <path d="M50 18 L60 40 L84 40 L64 54 L72 78 L50 62 L28 78 L36 54 L16 40 L40 40 Z"
+              fill="var(--navy)"/>
+      </svg>
+    </div>
+    <h1>Defending Communities. Defending Democracy.</h1>
+    <p>We support leaders who oppose antisemitism and strengthen pluralistic values.</p>
+  </div>
+</div>
 
 <section id="mission">
   <div class="container">
-    <p class="feature">
-      We are a federal political action committee dedicated to
-      <span class="highlight">combating antisemitism</span>
-      and supporting responsible leadership.
+    <h2>Our Mission</h2>
+    <p>
+      Alliance Against Antisemitism PAC is a federal political action committee dedicated to confronting antisemitism
+      and supporting candidates who uphold democratic values, reject hate, and promote inclusive public policy.
     </p>
     <p>
-      We support Democratic, Republican, and Independent candidates
-      based on values — not party — including opposition to hate,
-      respect for democratic institutions, and support for strong
-      U.S. alliances.
+      We support leaders based on principles and values — not party — and stand against political extremism in all forms.
     </p>
   </div>
 </section>
 
-<section id="updates" style="background: var(--gray)">
-  <div class="container">
-    <h2>Stay Updated</h2>
-    <form>
-      <input type="email" placeholder="Email address" required />
-      <input type="text" placeholder="ZIP code" required />
-      <button type="submit">Join</button>
-    </form>
-  </div>
-</section>
-
-<section id="about">
+<section id="about" style="background: var(--gray)">
   <div class="container grid">
     <div>
       <h2>About Us</h2>
     </div>
     <div>
       <p>
-        Alliance Against Antisemitism PAC is committed to confronting
-        antisemitism in public life and supporting candidates who
-        uphold pluralism, security, and democratic norms.
+        The Alliance Against Antisemitism PAC works within the federal political system to support responsible leadership
+        that rejects antisemitism, defends human dignity, and preserves the security of all communities.
       </p>
       <p>
-        We believe antisemitism threatens not only Jewish communities,
-        but the health of democracy itself.
+        Our contributors represent a broad cross-section of Americans who believe that hate has no place in public life.
       </p>
     </div>
   </div>
 </section>
 
-<footer id="donate">
-  <p>
-    Alliance Against Antisemitism PAC<br />
-    Washington, DC
-  </p>
+<section id="donate">
+  <div class="container">
+    <h2>Support Our Work</h2>
+    <p>Your contribution helps us support candidates committed to unity, safety, and democracy.</p>
+    <p><strong>Online donation integration coming soon.</strong></p>
+  </div>
+</section>
 
+<footer>
+  <p>Alliance Against Antisemitism PAC</p>
   <p>
-    Contact:
-    <a href="mailto:info@allianceagainstantisemitism.org">
-      info@allianceagainstantisemitism.org
-    </a>
+    Contact: <a href="mailto:info@allianceagainstantisemitism.org">info@allianceagainstantisemitism.org</a>
   </p>
-
   <div class="disclaimer">
-    Paid for by Alliance Against Antisemitism PAC.<br />
-    Not authorized by any candidate or candidate’s committee.<br />
-    Contributions are subject to the limitations and prohibitions of
-    the Federal Election Campaign Act.
+    Paid for by Alliance Against Antisemitism PAC. Not authorized by any candidate or candidate’s committee.
+    Contributions are subject to the Federal Election Campaign Act’s limitations and prohibitions.
   </div>
 </footer>
 
