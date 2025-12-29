@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Leadership | Alliance Against Antisemitism PAC</title>
+
+  <!-- Lato Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --navy: #272a41;
+      --blue: #0096b5;
+      --light: #f6f7f9;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Lato", sans-serif;
+      color: var(--navy);
+      line-height: 1.6;
+      background: var(--light);
+    }
+
+    /* ================= HEADER ================= */
+
+    .top-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 0.5rem 1.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 3000;
+      pointer-events: none;
+    }
+
+    .logo-wrap {
+      background: white;
+      padding: 0.4rem 0.9rem;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      box-shadow: 0 6px 18px rgba(0,0,0,.18);
+      pointer-events: auto;
+    }
+
+    .logo-wrap img {
+      height: 34px;
+      width: auto;
+      display: block;
+    }
+
+    .hamburger {
+      position: fixed;
+      top: 0.85rem;
+      right: 1.5rem;
+      width: 28px;
+      height: 22px;
+      cursor: pointer;
+      z-index: 4000;
+    }
+
+    .hamburger span {
+      display: block;
+      height: 3px;
+      width: 100%;
+      background: var(--navy);
+      margin-bottom: 5px;
+      border-radius: 2px;
+    }
+
+    /* ================= MENU ================= */
+
+    .menu {
+      position: fixed;
+      top: 56px;
+      right: 1.5rem;
+      background: white;
+      width: 190px;
+      border-radius: 14px;
+      box-shadow: 0 20px 40px rgba(0,0,0,.25);
+      display: none;
+      flex-direction: column;
+      padding: 0.5rem 0;
+      z-index: 5000;
+    }
+
+    .menu.open {
+      display: flex;
+    }
+
+    .menu a {
+      padding: 0.85rem 1.25rem;
+      font-weight: 700;
+      color: var(--navy);
+      text-decoration: none;
+      display: block;
+    }
+
+    .menu a span {
+      position: relative;
+      display: inline-block;
+    }
+
+    .menu a span::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 0;
+      height: 3px;
+      background: var(--blue);
+      transition: width 0.25s ease;
+    }
+
+    .menu a:hover span::after {
+      width: 100%;
+    }
+
+    .menu .donate {
+      margin: 0.75rem 1.25rem 0.5rem;
+      background: var(--blue);
+      color: white;
+      text-align: center;
+      border-radius: 14px;
+      padding: 0.75rem;
+      font-weight: 800;
+    }
+
+    /* ================= PAGE HEADER ================= */
+
+    .page-hero {
+      padding: 8rem 2rem 4rem;
+      text-align: center;
+      background: white;
+    }
+
+    .page-hero h1 {
+      font-size: 3rem;
+      font-weight: 900;
+      margin-bottom: 1rem;
+    }
+
+    .page-hero p {
+      max-width: 720px;
+      margin: auto;
+      font-size: 1.1rem;
+      color: #555;
+    }
+
+    /* ================= LEADERSHIP GRID ================= */
+
+    .leadership {
+      max-width: 1200px;
+      margin: auto;
+      padding: 4rem 2rem 6rem;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3rem;
+    }
+
+    .leader-card {
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 12px 30px rgba(0,0,0,.15);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .leader-card img {
+      width: 100%;
+      height: 340px;
+      object-fit: cover;
+    }
+
+    .leader-content {
+      padding: 1.75rem;
+    }
+
+    .leader-content h3 {
+      font-size: 1.4rem;
+      font-weight: 900;
+      margin-bottom: 0.25rem;
+    }
+
+    .leader-content .title {
+      color: var(--blue);
+      font-weight: 700;
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+
+    .leader-content p {
+      font-size: 0.95rem;
+      color: #444;
+    }
+
+    /* ================= FOOTER ================= */
+
+    footer {
+      padding: 3rem 2rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #666;
+      background: white;
+    }
+
+    footer .disclaimer {
+      display: inline-block;
+      padding: 1rem 1.5rem;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+    }
+
+    /* ================= MOBILE ================= */
+
+    @media (max-width: 900px) {
+      .leadership {
+        grid-template-columns: 1fr;
+      }
+
+      .page-hero h1 {
+        font-size: 2.4rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <div class="top-bar">
+    <div class="logo-wrap">
+      <img src="images/AAALogo.png" alt="Alliance Against Antisemitism PAC Logo">
+    </div>
+  </div>
+
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+
+  <!-- MENU -->
+  <nav class="menu" id="menu">
+    <a href="index.html"><span>Home</span></a>
+    <a href="leadership.html"><span>Leadership</span></a>
+    <a href="#"><span>News</span></a>
+    <a href="#"><span>Contact</span></a>
+    <a href="#" class="donate">Donate</a>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <section class="page-hero">
+    <h1>Leadership</h1>
+    <p>
+      The Alliance Against Antisemitism PAC is guided by leaders who have demonstrated
+      moral clarity and courage in confronting antisemitism and defending democratic values.
+    </p>
+  </section>
+
+  <!-- LEADERSHIP GRID -->
+  <section class="leadership">
+
+    <!-- LEADER 1 -->
+    <div class="leader-card">
+      <img src="images/leader1.jpg" alt="Member of Congress">
+      <div class="leader-content">
+        <h3>Rep. Firstname Lastname</h3>
+        <div class="title">United States House of Representatives</div>
+        <p>
+          Representative Lastname has been a leading voice in combating antisemitism
+          and strengthening America’s commitment to freedom, security, and democratic norms.
+        </p>
+      </div>
+    </div>
+
+    <!-- LEADER 2 -->
+    <div class="leader-card">
+      <img src="images/leader2.jpg" alt="Member of Congress">
+      <div class="leader-content">
+        <h3>Rep. Firstname Lastname</h3>
+        <div class="title">United States House of Representatives</div>
+        <p>
+          Representative Lastname has consistently supported bipartisan efforts to
+          confront hate, defend religious freedom, and promote accountability.
+        </p>
+      </div>
+    </div>
+
+    <!-- LEADER 3 -->
+    <div class="leader-card">
+      <img src="images/leader3.jpg" alt="Member of Congress">
+      <div class="leader-content">
+        <h3>Sen. Firstname Lastname</h3>
+        <div class="title">United States Senate</div>
+        <p>
+          Senator Lastname brings principled leadership and a record of action
+          to the fight against antisemitism and extremism.
+        </p>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="disclaimer">
+      Paid for by the Alliance Against Antisemitism Political Action Committee,
+      C/O MBA Consulting, PO Box 15845 Washington, DC 20003.
+      Not authorized by any candidate or candidate’s committee.
+      Contributions are not deductible for federal tax purposes.
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById("menu").classList.toggle("open");
+    }
+  </script>
+
+</body>
+</html>
