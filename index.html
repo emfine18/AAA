@@ -5,16 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Alliance Against Antisemitism PAC</title>
 
-<!-- Lato Font -->
+<!-- Lato -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
 
 <style>
 :root {
-  --text: #272a41;
-  --donate: #0096b5;
-  --gray: #f3f4f6;
+  --navy: #272a41;
+  --blue: #0096b5;
+  --light: #f4f6f8;
   --white: #ffffff;
 }
 
@@ -23,33 +23,31 @@
 body {
   margin: 0;
   font-family: "Lato", system-ui, sans-serif;
-  color: var(--text);
+  color: var(--navy);
   background: var(--white);
 }
 
-/* HEADER / NAV */
+/* HEADER */
 header {
   position: fixed;
   top: 0;
   width: 100%;
-  padding: 1.25rem 1.5rem;
+  padding: 1.25rem;
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 100;
-  pointer-events: none;
 }
 
 .logo {
   color: white;
   font-weight: 900;
   font-size: 1.1rem;
-  pointer-events: auto;
 }
 
 .hamburger {
   position: fixed;
-  right: 1.5rem;
+  right: 1.25rem;
   top: 1.25rem;
   width: 40px;
   height: 40px;
@@ -60,22 +58,20 @@ header {
   justify-content: center;
   gap: 6px;
   cursor: pointer;
-  pointer-events: auto;
 }
 
 .hamburger span {
-  width: 100%;
   height: 3px;
   background: white;
   border-radius: 2px;
 }
 
-/* DROPDOWN MENU */
+/* MENU */
 .menu {
   display: none;
   position: fixed;
-  top: 72px;
-  right: 1.5rem;
+  top: 70px;
+  right: 1.25rem;
   background: white;
   border-radius: 14px;
   box-shadow: 0 25px 50px rgba(0,0,0,.25);
@@ -84,25 +80,19 @@ header {
   z-index: 200;
 }
 
-.menu.open {
-  display: block;
-}
+.menu.open { display: block; }
 
 .menu a {
   display: block;
   padding: 1rem 1.5rem;
   text-decoration: none;
-  color: var(--text);
+  color: var(--navy);
   font-weight: 700;
-}
-
-.menu a:hover {
-  background: var(--gray);
 }
 
 .menu .donate {
   margin: 1rem;
-  background: var(--donate);
+  background: var(--blue);
   color: white;
   text-align: center;
   border-radius: 10px;
@@ -113,7 +103,7 @@ header {
   min-height: 100vh;
   background:
     linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.35)),
-    url("/images/ferdinand-stohr-PeFk7fzxTdk-unsplash.jpg") center/cover no-repeat;
+    url("/mnt/data/ferdinand-stohr-PeFk7fzxTdk-unsplash.jpeg") center/cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -123,9 +113,8 @@ header {
 
 .hero h1 {
   color: white;
-  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
   font-weight: 900;
-  max-width: 900px;
 }
 
 /* SECTIONS */
@@ -144,11 +133,11 @@ section {
   gap: 3rem;
 }
 
-.about-image img {
+.about img {
   width: 100%;
   height: 520px;
   object-fit: cover;
-  border-radius: 24px;
+  border-radius: 28px;
 }
 
 @media (min-width: 900px) {
@@ -160,7 +149,7 @@ section {
 
 /* STAY UPDATED */
 .stay {
-  background: var(--gray);
+  background: var(--light);
   text-align: center;
 }
 
@@ -173,17 +162,17 @@ form {
 }
 
 input, button {
-  padding: 0.9rem;
+  padding: 1rem;
   font-size: 1rem;
 }
 
 button {
-  background: var(--donate);
+  background: var(--blue);
   color: white;
   border: none;
   font-weight: 700;
+  border-radius: 10px;
   cursor: pointer;
-  border-radius: 8px;
 }
 
 /* FOOTER */
@@ -214,9 +203,9 @@ footer {
 
 <nav class="menu" id="menu">
   <a href="#about">About</a>
-  <a href="#leadership">Leadership</a>
-  <a href="#news">News</a>
-  <a href="#contact">Contact</a>
+  <a href="#">Leadership</a>
+  <a href="#">News</a>
+  <a href="#">Contact</a>
   <a href="#donate" class="donate">Donate</a>
 </nav>
 
@@ -226,9 +215,7 @@ footer {
 
 <section id="about">
   <div class="container about">
-    <div class="about-image">
-      <img src="/images/shiona-das-0I_GHNL4xTw-unsplash.jpeg" alt="American flags" />
-    </div>
+    <img src="/mnt/data/shiona-das-0I_GHNL4xTw-unsplash.jpeg" alt="American flags" />
     <div>
       <h2>About the Alliance Against Antisemitism PAC</h2>
       <p>
@@ -237,14 +224,8 @@ footer {
         effectively, we must act.
       </p>
       <p>
-        The Alliance Against Antisemitism PAC is dedicated to fighting
-        antisemitism and ensuring it remains a national priority rooted in
-        America’s core values of democracy, freedom, and respect for all people.
-      </p>
-      <p>
-        This isn’t only about policy — it’s personal. Silence is not an option.
-        Together, we can send a message that antisemitism and all forms of hate
-        have no place in our politics or our country.
+        This PAC exists because silence is not an option. We support candidates
+        who take antisemitism seriously and reflect moral leadership in political leadership.
       </p>
     </div>
   </div>
