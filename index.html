@@ -89,6 +89,52 @@
       border-radius: 2px;
     }
 
+/* ================= STAY UPDATED (HORIZONTAL) ================= */
+
+.signup {
+  background: #f6f7f9;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.signup h3 {
+  font-size: 2.2rem;
+  font-weight: 900;
+  margin-bottom: 2rem;
+}
+
+.signup-form {
+  max-width: 720px;
+  margin: auto;
+  display: flex;
+  gap: 1rem;
+}
+
+.signup-form input {
+  flex: 1;
+  padding: 0.85rem 1rem;
+  font-size: 1rem;
+  border-radius: 999px;
+  border: 1px solid #ccc;
+}
+
+.signup-form button {
+  padding: 0.85rem 2.25rem;
+  background: #0096b5;
+  color: white;
+  border: none;
+  border-radius: 999px;
+  font-size: 1rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+@media (max-width: 700px) {
+  .signup-form {
+    flex-direction: column;
+  }
+}
+    
     /* ================= MENU ================= */
 
 .menu {
@@ -296,52 +342,18 @@
     </div>
   </section>
 
-  <!-- STAY UPDATED -->
-.signup {
-  background: #f6f7f9;
-  padding: 4rem 2rem;
-  text-align: center;
-}
+<section class="signup">
+  <h3>Stay Up to Date</h3>
 
-.signup h3 {
-  font-size: 2.2rem;
-  font-weight: 900;
-  margin-bottom: 2rem;
-}
-
-.signup-form {
-  max-width: 720px;
-  margin: auto;
-  display: flex;
-  gap: 1rem;
-}
-
-.signup-form input {
-  flex: 1;
-  padding: 0.85rem 1rem;
-  font-size: 1rem;
-  border-radius: 999px;
-  border: 1px solid #ccc;
-}
-
-.signup-form button {
-  padding: 0.85rem 2.25rem;
-  background: #0096b5;
-  color: white;
-  border: none;
-  border-radius: 999px;
-  font-size: 1rem;
-  font-weight: 800;
-  cursor: pointer;
-}
-
-/* Mobile fallback */
-@media (max-width: 700px) {
-  .signup-form {
-    flex-direction: column;
-  }
-}
-  <!-- FOOTER -->
+  <form class="signup-form">
+    <input type="text" placeholder="First Name" required>
+    <input type="text" placeholder="Last Name" required>
+    <input type="email" placeholder="Email Address" required>
+    <input type="text" placeholder="ZIP Code" required>
+    <button type="submit">Join</button>
+  </form>
+</section>
+  
   <footer>
     <div class="disclaimer">
       Paid for by Alliance Against Antisemitism PAC. Not authorized by any candidate or
