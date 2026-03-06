@@ -10,9 +10,12 @@
 
   <style>
     :root {
-      --navy: #272a41;
-      --blue: #0096b5;
-      --light: #f6f7f9;
+      --navy:  #1a237e;   /* deep indigo — Dem energy    */
+      --blue:  #1565c0;   /* rich cobalt                 */
+      --sky:   #42a5f5;   /* hopeful sky blue accent     */
+      --white: #FFFFFF;
+      --light: #e8eaf6;   /* indigo-tinted off-white     */
+      --accent:#64b5f6;   /* bright airy blue highlight  */
     }
 
     * {
@@ -42,23 +45,23 @@
       pointer-events: none;
     }
 
-.logo-wrap {
-  background: white;
-  padding: 0.4rem 0.9rem;
-  border-radius: 6px;          /* clean rectangle, not pill */
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 6px 18px rgba(0,0,0,.18);
-  pointer-events: auto;
-}
+    .logo-wrap {
+      background: white;
+      padding: 0.4rem 0.9rem;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 18px rgba(0,0,0,.18);
+      pointer-events: auto;
+    }
 
-.logo-wrap img {
-  height: 50px;               /* adjust if needed */
-  width: auto;
-  display: block;
-}
-    
+    .logo-wrap img {
+      height: 50px;
+      width: auto;
+      display: block;
+    }
+
     .hamburger {
       position: fixed;
       top: 1.5rem;
@@ -92,6 +95,7 @@
       flex-direction: column;
       padding: 0.5rem 0;
       z-index: 5000;
+      border-top: 4px solid var(--blue);
     }
 
     .menu.open {
@@ -119,7 +123,6 @@
       width: 0;
       height: 3px;
       background: var(--blue);
-      transition: width 0.25s ease;
     }
 
     .menu a:hover span::after {
@@ -134,6 +137,11 @@
       border-radius: 14px;
       padding: 0.75rem;
       font-weight: 800;
+      letter-spacing: 0.03em;
+    }
+
+    .menu .donate:hover {
+      background: #0d47a1;
     }
 
     /* ================= HERO ================= */
@@ -141,7 +149,7 @@
     .hero {
       height: 70vh;
       background:
-        linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)),
+        linear-gradient(rgba(26,35,126,.55), rgba(21,101,192,.35)),
         url("images/ferdinand-unsplash.jpg") center center / cover no-repeat;
     }
 
@@ -162,25 +170,43 @@
       height: 480px;
       object-fit: cover;
       border-radius: 28px;
+      /* red + navy double border for patriotic flair */
+      box-shadow: 0 0 0 4px var(--sky), 0 0 0 8px var(--navy);
     }
 
     .about h2 {
       font-size: 2.4rem;
       font-weight: 900;
       margin-bottom: 1.5rem;
+      color: var(--navy);
+    }
+
+    /* Red underline accent on heading */
+    .about h2 span {
+      display: block;
+      width: 56px;
+      height: 4px;
+      background: var(--sky);
+      border-radius: 2px;
     }
 
     .about p {
       font-size: 1.05rem;
       margin-bottom: 1.2rem;
+      color: #1a2a4a;
     }
 
     /* ================= STAY UPDATED ================= */
 
     .stay-updated {
-      background: var(--navy);
+      /* Patriotic stripe gradient: navy → deep red */
+      background: linear-gradient(135deg, #0d0a2e 0%, #1a237e 30%, #1565c0 65%, #1e88e5 100%);
       padding: 5rem 2rem;
+      position: relative;
+      overflow: hidden;
     }
+
+
 
     .stay-inner {
       max-width: 1200px;
@@ -192,9 +218,16 @@
     }
 
     .stay-updated h3 {
-      color: white;
       font-size: 3.2rem;
       font-weight: 900;
+      font-style: italic;
+      background: linear-gradient(120deg, #ffffff 0%, var(--accent) 50%, var(--sky) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .stay-updated h3 em {
       font-style: italic;
     }
 
@@ -213,13 +246,19 @@
       flex: 1;
       padding: 1rem;
       border-radius: 6px;
-      border: none;
+      border: 2px solid transparent;
       font-size: 1rem;
+      transition: border-color 0.2s;
+    }
+
+    .stay-form input:focus {
+      outline: none;
+      border-color: var(--accent);
     }
 
     .stay-form button {
       align-self: flex-start;
-      background: var(--blue);
+      background: var(--red);
       color: white;
       border: none;
       border-radius: 6px;
@@ -230,7 +269,15 @@
       display: inline-flex;
       align-items: center;
       gap: 0.6rem;
-      box-shadow: 0 12px 24px rgba(0,0,0,.25);
+      box-shadow: 0 12px 24px rgba(0,0,0,.35);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .stay-form button:hover {
+      background: #8B0000;
+      transform: translateY(-2px);
     }
 
     .stay-form .arrow {
@@ -241,17 +288,20 @@
     /* ================= FOOTER ================= */
 
     footer {
+      background: var(--light);
       padding: 3rem 2rem;
       text-align: center;
       font-size: 0.9rem;
-      color: #666;
+      color: #555;
+      border-top: 4px solid var(--navy);
     }
 
     footer .disclaimer {
       display: inline-block;
       padding: 1rem 1.5rem;
-      border: 1px solid #ddd;
+      border: 1px solid #ccd;
       border-radius: 10px;
+      max-width: 700px;
     }
 
     /* ================= MOBILE ================= */
@@ -283,24 +333,24 @@
 <body>
 
   <!-- HEADER -->
-<div class="top-bar">
-  <a href="index.html" class="logo-wrap">
-    <img src="images/AAALogo.png" alt="Alliance Against Antisemitism PAC Logo">
-  </a>
-</div>
+  <div class="top-bar">
+    <a href="index.html" class="logo-wrap">
+      <img src="images/AAALogo.png" alt="Alliance Against Antisemitism PAC Logo">
+    </a>
+  </div>
 
   <div class="hamburger" onclick="toggleMenu()">
     <span></span><span></span><span></span>
   </div>
 
   <!-- MENU -->
-<nav class="menu" id="menu">
-  <a href="about.html"><span>About</span></a>
-  <a href="leadership.html"><span>Leadership</span></a>
-  <a href="news.html"><span>News</span></a>
-  <a href="contact.html"><span>Contact</span></a>
-  <a href="donate.html" class="donate">Donate</a>
-</nav>
+  <nav class="menu" id="menu">
+    <a href="about.html"><span>About</span></a>
+    <a href="leadership.html"><span>Leadership</span></a>
+    <a href="news.html"><span>News</span></a>
+    <a href="contact.html"><span>Contact</span></a>
+    <a href="donate.html" class="donate">Donate</a>
+  </nav>
 
   <!-- HERO -->
   <section class="hero"></section>
@@ -308,7 +358,7 @@
   <!-- STAY UPDATED -->
   <section class="stay-updated">
     <div class="stay-inner">
-      <h3>Stay Updated</h3>
+      <h3>Stay <em>Updated</em></h3>
 
       <form class="stay-form">
         <div class="form-row">
@@ -331,7 +381,7 @@
     <img src="images/shiona-das-0I_GHNL4xTw-unsplash.jpg" alt="American flags">
 
     <div>
-      <h2>About the Alliance Against Antisemitism PAC</h2>
+      <h2>About the Alliance Against Antisemitism PAC<span></span></h2>
 
       <p>
         Antisemitism is not a relic of history — it is a growing threat in our politics,
@@ -341,24 +391,24 @@
       <p>
         The Alliance Against Antisemitism PAC is dedicated to fighting antisemitism.
         It ensures that combating antisemitism remains a national priority rooted in
-        America’s core values of democracy, freedom, and respect for all people.
+        America's core values of democracy, freedom, and respect for all people.
         By supporting candidates who take this fight seriously, we help make sure
         that moral leadership is reflected in political leadership.
       </p>
 
       <p>
-        But this isn’t only about policy. It’s personal. Antisemitism touches real people,
+        But this isn't only about policy. It's personal. Antisemitism touches real people,
         real families, and real lives. Silence is not an option.
       </p>
     </div>
   </section>
-  
+
   <!-- FOOTER -->
   <footer>
     <div class="disclaimer">
       Paid for by the Alliance Against Antisemitism Political Action Committee,
       C/O MBA Consulting, PO Box 15845 Washington, DC 20003.
-      Not authorized by any candidate or candidate’s committee.
+      Not authorized by any candidate or candidate's committee.
       Contributions are not deductible for federal tax purposes.
     </div>
   </footer>
