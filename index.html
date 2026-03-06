@@ -64,20 +64,27 @@
 
     .hamburger {
       position: fixed;
-      top: 1.5rem;
+      top: 1.1rem;
       right: 1.5rem;
-      width: 28px;
-      height: 22px;
+      width: 44px;
+      height: 44px;
       cursor: pointer;
       z-index: 4000;
+      background: var(--navy);
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      box-shadow: 0 4px 14px rgba(0,0,0,.25);
     }
 
     .hamburger span {
       display: block;
       height: 3px;
-      width: 100%;
+      width: 22px;
       background: white;
-      margin-bottom: 5px;
       border-radius: 2px;
     }
 
@@ -123,6 +130,7 @@
       width: 0;
       height: 3px;
       background: var(--blue);
+      transition: width 0.25s ease;
     }
 
     .menu a:hover span::after {
@@ -187,6 +195,7 @@
       width: 56px;
       height: 4px;
       background: var(--sky);
+      margin-top: 0.6rem;
       border-radius: 2px;
     }
 
@@ -258,7 +267,7 @@
 
     .stay-form button {
       align-self: flex-start;
-      background: var(--red);
+      background: var(--blue);
       color: white;
       border: none;
       border-radius: 6px;
@@ -276,7 +285,7 @@
     }
 
     .stay-form button:hover {
-      background: #8B0000;
+      background: #0d47a1;
       transform: translateY(-2px);
     }
 
@@ -299,7 +308,7 @@
     footer .disclaimer {
       display: inline-block;
       padding: 1rem 1.5rem;
-      border: 1px solid #ccd;
+      border: 1px solid #c5cae9;
       border-radius: 10px;
       max-width: 700px;
     }
