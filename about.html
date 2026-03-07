@@ -4,22 +4,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>About – Alliance Against Antisemitism PAC</title>
-
-  <!-- Lato Font -->
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --navy: #272a41;
-      --blue: #0096b5;
-      --light: #f6f7f9;
+      --navy:  #1a237e;
+      --blue:  #1565c0;
+      --sky:   #42a5f5;
+      --light: #e8eaf6;
+      --accent:#64b5f6;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       font-family: "Lato", sans-serif;
@@ -27,12 +23,10 @@
       line-height: 1.6;
     }
 
-    /* ================= HEADER ================= */
-
+    /* ===== HEADER ===== */
     .top-bar {
       position: fixed;
-      top: 0;
-      left: 0;
+      top: 0; left: 0;
       width: 100%;
       padding: 0.5rem 1.5rem;
       display: flex;
@@ -53,37 +47,35 @@
       pointer-events: auto;
     }
 
-    .logo-wrap img {
-      height: 50px;
-      width: auto;
-      display: block;
-    }
+    .logo-wrap img { height: 50px; width: auto; display: block; }
 
     .hamburger {
       position: fixed;
-      top: 1.5rem;
-      right: 1.5rem;
-      width: 28px;
-      height: 22px;
+      top: 1.1rem; right: 1.5rem;
+      width: 44px; height: 44px;
       cursor: pointer;
       z-index: 4000;
+      background: var(--navy);
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      box-shadow: 0 4px 14px rgba(0,0,0,.25);
     }
 
     .hamburger span {
       display: block;
-      height: 3px;
-      width: 100%;
+      height: 3px; width: 22px;
       background: white;
-      margin-bottom: 5px;
       border-radius: 2px;
     }
 
-    /* ================= MENU ================= */
-
+    /* ===== MENU ===== */
     .menu {
       position: fixed;
-      top: 80px;
-      right: 1.5rem;
+      top: 80px; right: 1.5rem;
       background: white;
       width: 190px;
       border-radius: 14px;
@@ -92,11 +84,10 @@
       flex-direction: column;
       padding: 0.5rem 0;
       z-index: 5000;
+      border-top: 4px solid var(--blue);
     }
 
-    .menu.open {
-      display: flex;
-    }
+    .menu.open { display: flex; }
 
     .menu a {
       padding: 0.85rem 1.25rem;
@@ -106,25 +97,18 @@
       display: block;
     }
 
-    .menu a span {
-      position: relative;
-      display: inline-block;
-    }
+    .menu a span { position: relative; display: inline-block; }
 
     .menu a span::after {
       content: "";
       position: absolute;
-      left: 0;
-      bottom: -6px;
-      width: 0;
-      height: 3px;
+      left: 0; bottom: -6px;
+      width: 0; height: 3px;
       background: var(--blue);
       transition: width 0.25s ease;
     }
 
-    .menu a:hover span::after {
-      width: 100%;
-    }
+    .menu a:hover span::after { width: 100%; }
 
     .menu .donate {
       margin: 0.75rem 1.25rem 0.5rem;
@@ -134,13 +118,16 @@
       border-radius: 14px;
       padding: 0.75rem;
       font-weight: 800;
+      letter-spacing: 0.03em;
     }
 
-    /* ================= HERO ================= */
+    .menu .donate:hover { background: #0d47a1; }
 
+    /* ===== HERO ===== */
     .hero {
       height: 45vh;
       background:
+        linear-gradient(rgba(26,35,126,.5), rgba(21,101,192,.35)),
         url("images/levi-meir-clancy-NjagT5bv55I-unsplash.jpg") center center / cover no-repeat;
       display: flex;
       align-items: center;
@@ -149,32 +136,16 @@
       padding: 2rem;
     }
 
-    .hero h1 {
+    .hero-title {
       color: white;
       font-size: 3rem;
       font-weight: 900;
+      padding: 1rem 2.5rem;
+      border-radius: 8px;
+      display: inline-block;
     }
 
-    .hero-title {
-  background: var(--blue);
-  color: white;
-  font-size: 3rem;
-  font-weight: 900;
-  padding: 1rem 2.5rem;
-  border-radius: 8px;
-  display: inline-block;
-  box-shadow: 0 12px 24px rgba(0,0,0,.25);
-}
-
-    @media (max-width: 700px) {
-  .hero-title {
-    font-size: 2.2rem;
-    padding: 0.85rem 1.75rem;
-  }
-}
-    
-    /* ================= ABOUT ================= */
-
+    /* ===== ABOUT CONTENT ===== */
     .about {
       max-width: 900px;
       margin: auto;
@@ -193,107 +164,101 @@
       color: #444;
     }
 
-    /* ================= FOOTER ================= */
-
+    /* ===== FOOTER ===== */
     footer {
+      background: var(--light);
       padding: 3rem 2rem;
       text-align: center;
       font-size: 0.9rem;
-      color: #666;
+      color: #555;
+      border-top: 4px solid var(--navy);
     }
 
     footer .disclaimer {
       display: inline-block;
       padding: 1rem 1.5rem;
-      border: 1px solid #ddd;
+      border: 1px solid #c5cae9;
       border-radius: 10px;
+      max-width: 700px;
     }
 
-    /* ================= MOBILE ================= */
-
+    /* ===== MOBILE ===== */
     @media (max-width: 700px) {
-      .hero h1 {
-        font-size: 2.2rem;
-      }
-
-      .about h2 {
-        font-size: 2rem;
-      }
+      .hero-title { font-size: 2.2rem; padding: 0.85rem 1.75rem; }
+      .about h2 { font-size: 2rem; }
     }
   </style>
 </head>
 
 <body>
 
-<!-- HEADER -->
-<div class="top-bar">
-  <a href="index.html" class="logo-wrap">
-    <img src="images/AAALogo.png" alt="Alliance Against Antisemitism PAC Logo">
-  </a>
-</div>
-
-<!-- HAMBURGER -->
-<div class="hamburger" onclick="toggleMenu()">
-  <span></span><span></span><span></span>
-</div>
-
-<!-- MENU -->
-<nav class="menu" id="menu">
-  <a href="index.html"><span>Home</span></a>
-  <a href="about.html"><span>About</span></a>
-  <a href="leadership.html"><span>Leadership</span></a>
-  <a href="news.html"><span>News</span></a>
-  <a href="contact.html"><span>Contact</span></a>
-  <a href="donate.html" class="donate">Donate</a>
-</nav>
-
-<!-- HERO -->
-<section class="hero">
-  <h1 class="hero-title">About Us</h1>
-</section>
-
-<!-- ABOUT CONTENT -->
-<section class="about">
-  <h2>Alliance Against Antisemitism PAC</h2>
-
-  <p>
-    Antisemitism is not a relic of history — it is a growing threat in our politics,
-    schools, workplaces, and communities. To confront it effectively, we must act.
-  </p>
-
-  <p>
-    The Alliance Against Antisemitism PAC is dedicated to fighting antisemitism.
-    It ensures that combating antisemitism remains a national priority rooted in
-    America’s core values of democracy, freedom, and respect for all people.
-    By supporting candidates who take this fight seriously, we help make sure
-    that moral leadership is reflected in political leadership.
-  </p>
-
-  <p>
-    But this isn’t only about policy. It’s personal. Antisemitism touches real people,
-    real families, and real lives. This PAC exists because silence is not an option,
-    and statements are not enough. We believe that every person deserves to live
-    free from hate and fear — and that together, we can make that a political reality.
-    Together, we can send a message that antisemitism — and all forms of hate —
-    have no place in our politics or our country.
-  </p>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="disclaimer">
-    Paid for by the Alliance Against Antisemitism Political Action Committee,
-    C/O MBA Consulting, PO Box 15845 Washington, DC 20003.
-    Not authorized by any candidate or candidate’s committee.
-    Contributions are not deductible for federal tax purposes.
+  <!-- HEADER -->
+  <div class="top-bar">
+    <a href="index.html" class="logo-wrap">
+      <img src="images/AAALogo.png" alt="Alliance Against Antisemitism PAC Logo">
+    </a>
   </div>
-</footer>
 
-<script>
-  function toggleMenu() {
-    document.getElementById("menu").classList.toggle("open");
-  }
-</script>
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+
+  <nav class="menu" id="menu">
+    <a href="index.html"><span>Home</span></a>
+    <a href="about.html"><span>About</span></a>
+    <a href="leadership.html"><span>Leadership</span></a>
+    <a href="news.html"><span>News</span></a>
+    <a href="contact.html"><span>Contact</span></a>
+    <a href="donate.html" class="donate">Donate</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <h1 class="hero-title">About Us</h1>
+  </section>
+
+  <!-- ABOUT CONTENT -->
+  <section class="about">
+    <h2>Alliance Against Antisemitism PAC</h2>
+
+    <p>
+      Antisemitism is not a relic of history — it is a growing threat in our politics,
+      schools, workplaces, and communities. To confront it effectively, we must act.
+    </p>
+
+    <p>
+      The Alliance Against Antisemitism PAC is dedicated to fighting antisemitism.
+      It ensures that combating antisemitism remains a national priority rooted in
+      America's core values of democracy, freedom, and respect for all people.
+      By supporting candidates who take this fight seriously, we help make sure
+      that moral leadership is reflected in political leadership.
+    </p>
+
+    <p>
+      But this isn't only about policy. It's personal. Antisemitism touches real people,
+      real families, and real lives. This PAC exists because silence is not an option,
+      and statements are not enough. We believe that every person deserves to live
+      free from hate and fear — and that together, we can make that a political reality.
+      Together, we can send a message that antisemitism — and all forms of hate —
+      have no place in our politics or our country.
+    </p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="disclaimer">
+      Paid for by the Alliance Against Antisemitism Political Action Committee,
+      C/O MBA Consulting, PO Box 15845 Washington, DC 20003.
+      Not authorized by any candidate or candidate's committee.
+      Contributions are not deductible for federal tax purposes.
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById("menu").classList.toggle("open");
+    }
+  </script>
 
 </body>
 </html>
