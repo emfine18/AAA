@@ -4,36 +4,29 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Leadership | Alliance Against Antisemitism PAC</title>
-
-  <!-- Lato Font -->
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --navy: #272a41;
-      --blue: #0096b5;
-      --light: #f6f7f9;
+      --navy:  #1a237e;
+      --blue:  #1565c0;
+      --sky:   #42a5f5;
+      --light: #e8eaf6;
+      --accent:#64b5f6;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       font-family: "Lato", sans-serif;
       color: var(--navy);
       line-height: 1.6;
-      background: var(--light);
     }
 
-    /* ================= HEADER ================= */
-
+    /* ===== HEADER ===== */
     .top-bar {
       position: fixed;
-      top: 0;
-      left: 0;
+      top: 0; left: 0;
       width: 100%;
       padding: 0.5rem 1.5rem;
       display: flex;
@@ -43,48 +36,46 @@
       pointer-events: none;
     }
 
-.logo-wrap {
-  background: white;
-  padding: 0.4rem 0.9rem;
-  border-radius: 6px;          /* clean rectangle, not pill */
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 6px 18px rgba(0,0,0,.18);
-  pointer-events: auto;
-}
+    .logo-wrap {
+      background: white;
+      padding: 0.4rem 0.9rem;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 18px rgba(0,0,0,.18);
+      pointer-events: auto;
+    }
 
-.logo-wrap img {
-  height: 50px;               /* adjust if needed */
-  width: auto;
-  display: block;
-}
-    
+    .logo-wrap img { height: 50px; width: auto; display: block; }
+
     .hamburger {
       position: fixed;
-      top: 1.5rem;
-      right: 1.5rem;
-      width: 28px;
-      height: 22px;
+      top: 1.1rem; right: 1.5rem;
+      width: 44px; height: 44px;
       cursor: pointer;
       z-index: 4000;
+      background: var(--navy);
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      box-shadow: 0 4px 14px rgba(0,0,0,.25);
     }
 
     .hamburger span {
       display: block;
-      height: 3px;
-      width: 100%;
+      height: 3px; width: 22px;
       background: white;
-      margin-bottom: 5px;
       border-radius: 2px;
     }
 
-    /* ================= MENU ================= */
-
+    /* ===== MENU ===== */
     .menu {
       position: fixed;
-      top: 80px;
-      right: 1.5rem;
+      top: 80px; right: 1.5rem;
       background: white;
       width: 190px;
       border-radius: 14px;
@@ -93,11 +84,10 @@
       flex-direction: column;
       padding: 0.5rem 0;
       z-index: 5000;
+      border-top: 4px solid var(--blue);
     }
 
-    .menu.open {
-      display: flex;
-    }
+    .menu.open { display: flex; }
 
     .menu a {
       padding: 0.85rem 1.25rem;
@@ -107,25 +97,18 @@
       display: block;
     }
 
-    .menu a span {
-      position: relative;
-      display: inline-block;
-    }
+    .menu a span { position: relative; display: inline-block; }
 
     .menu a span::after {
       content: "";
       position: absolute;
-      left: 0;
-      bottom: -6px;
-      width: 0;
-      height: 3px;
+      left: 0; bottom: -6px;
+      width: 0; height: 3px;
       background: var(--blue);
       transition: width 0.25s ease;
     }
 
-    .menu a:hover span::after {
-      width: 100%;
-    }
+    .menu a:hover span::after { width: 100%; }
 
     .menu .donate {
       margin: 0.75rem 1.25rem 0.5rem;
@@ -135,35 +118,41 @@
       border-radius: 14px;
       padding: 0.75rem;
       font-weight: 800;
+      letter-spacing: 0.03em;
     }
 
-    /* ================= PAGE HEADER ================= */
+    .menu .donate:hover { background: #0d47a1; }
 
-    .page-hero {
-      padding: 8rem 2rem 4rem;
+    /* ===== HERO ===== */
+    .hero {
+      height: 45vh;
+      background:
+        linear-gradient(rgba(26,35,126,.55), rgba(21,101,192,.35)),
+        url("images/ferdinand-unsplash.jpg") center center / cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       text-align: center;
-      background: white;
+      padding: 2rem;
     }
 
-    .page-hero h1 {
+    .hero-title {
+      color: white;
       font-size: 3rem;
       font-weight: 900;
-      margin-bottom: 1rem;
     }
 
-    .page-hero p {
-      max-width: 720px;
-      margin: auto;
-      font-size: 1.1rem;
-      color: #555;
+    /* ===== CARDS SECTION ===== */
+    .leadership-wrap {
+      background: var(--navy);
+      padding: 5rem 2rem 6rem;
     }
 
-    /* ================= LEADERSHIP GRID ================= */
+
 
     .leadership {
       max-width: 1200px;
       margin: auto;
-      padding: 4rem 2rem 6rem;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 3rem;
@@ -172,7 +161,7 @@
     .leader-card {
       background: white;
       border-radius: 20px;
-      box-shadow: 0 12px 30px rgba(0,0,0,.15);
+      box-shadow: 0 12px 30px rgba(0,0,0,.25);
       overflow: hidden;
       display: flex;
       flex-direction: column;
@@ -206,33 +195,27 @@
       color: #444;
     }
 
-    /* ================= FOOTER ================= */
-
+    /* ===== FOOTER ===== */
     footer {
+      background: var(--light);
       padding: 3rem 2rem;
       text-align: center;
       font-size: 0.9rem;
-      color: #666;
-      background: white;
+      color: #555;
     }
 
     footer .disclaimer {
       display: inline-block;
       padding: 1rem 1.5rem;
-      border: 1px solid #ddd;
+      border: 1px solid #c5cae9;
       border-radius: 10px;
+      max-width: 700px;
     }
 
-    /* ================= MOBILE ================= */
-
+    /* ===== MOBILE ===== */
     @media (max-width: 900px) {
-      .leadership {
-        grid-template-columns: 1fr;
-      }
-
-      .page-hero h1 {
-        font-size: 2.4rem;
-      }
+      .leadership { grid-template-columns: 1fr; }
+      .hero-title { font-size: 2.2rem; }
     }
   </style>
 </head>
@@ -240,85 +223,79 @@
 <body>
 
   <!-- HEADER -->
-<div class="top-bar">
-  <a href="index.html" class="logo-wrap">
-    <img src="images/AAALogo.png" alt="Alliance Against Antisemitism PAC Logo">
-  </a>
-</div>
-  
+  <div class="top-bar">
+    <a href="index.html" class="logo-wrap">
+      <img src="images/AAALogo.png" alt="Alliance Against Antisemitism PAC Logo">
+    </a>
+  </div>
+
   <div class="hamburger" onclick="toggleMenu()">
     <span></span><span></span><span></span>
   </div>
 
-  <!-- MENU -->
-<nav class="menu" id="menu">
-  <a href="index.html"><span>Home</span></a>
-  <a href="about.html"><span>About</span></a>
-  <a href="leadership.html"><span>Leadership</span></a>
-  <a href="news.html"><span>News</span></a>
-  <a href="contact.html"><span>Contact</span></a>
-  <a href="donate.html" class="donate">Donate</a>
-</nav>
-  
-  <!-- PAGE HEADER -->
-  <section class="page-hero">
-    <h1>Leadership</h1>
-    <p>
-      The Alliance Against Antisemitism PAC is guided by leaders who have demonstrated
-      moral clarity and courage in confronting antisemitism and defending democratic values.
-    </p>
+  <nav class="menu" id="menu">
+    <a href="index.html"><span>Home</span></a>
+    <a href="about.html"><span>About</span></a>
+    <a href="leadership.html"><span>Leadership</span></a>
+    <a href="news.html"><span>News</span></a>
+    <a href="contact.html"><span>Contact</span></a>
+    <a href="donate.html" class="donate">Donate</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <h1 class="hero-title">Leadership</h1>
   </section>
 
-  <!-- LEADERSHIP GRID -->
-  <section class="leadership">
+  <!-- CARDS -->
+  <div class="leadership-wrap">
+    <div class="leadership">
 
-    <!-- LEADER 1 -->
-    <div class="leader-card">
-      <img src="images/leader1.jpg" alt="Member of Congress">
-      <div class="leader-content">
-        <h3>Rep. Firstname Lastname</h3>
-        <div class="title">United States House of Representatives</div>
-        <p>
-          Representative Lastname has been a leading voice in combating antisemitism
-          and strengthening America’s commitment to freedom, security, and democratic norms.
-        </p>
+      <div class="leader-card">
+        <img src="images/leader1.jpg" alt="Member of Congress">
+        <div class="leader-content">
+          <h3>Rep. Firstname Lastname</h3>
+          <div class="title">United States House of Representatives</div>
+          <p>
+            Representative Lastname has been a leading voice in combating antisemitism
+            and strengthening America's commitment to freedom, security, and democratic norms.
+          </p>
+        </div>
       </div>
-    </div>
 
-    <!-- LEADER 2 -->
-    <div class="leader-card">
-      <img src="images/leader2.jpg" alt="Member of Congress">
-      <div class="leader-content">
-        <h3>Rep. Firstname Lastname</h3>
-        <div class="title">United States House of Representatives</div>
-        <p>
-          Representative Lastname has consistently supported bipartisan efforts to
-          confront hate, defend religious freedom, and promote accountability.
-        </p>
+      <div class="leader-card">
+        <img src="images/leader2.jpg" alt="Member of Congress">
+        <div class="leader-content">
+          <h3>Rep. Firstname Lastname</h3>
+          <div class="title">United States House of Representatives</div>
+          <p>
+            Representative Lastname has consistently supported bipartisan efforts to
+            confront hate, defend religious freedom, and promote accountability.
+          </p>
+        </div>
       </div>
-    </div>
 
-    <!-- LEADER 3 -->
-    <div class="leader-card">
-      <img src="images/leader3.jpg" alt="Member of Congress">
-      <div class="leader-content">
-        <h3>Sen. Firstname Lastname</h3>
-        <div class="title">United States Senate</div>
-        <p>
-          Senator Lastname brings principled leadership and a record of action
-          to the fight against antisemitism and extremism.
-        </p>
+      <div class="leader-card">
+        <img src="images/leader3.jpg" alt="Member of Congress">
+        <div class="leader-content">
+          <h3>Sen. Firstname Lastname</h3>
+          <div class="title">United States Senate</div>
+          <p>
+            Senator Lastname brings principled leadership and a record of action
+            to the fight against antisemitism and extremism.
+          </p>
+        </div>
       </div>
-    </div>
 
-  </section>
+    </div>
+  </div>
 
   <!-- FOOTER -->
   <footer>
     <div class="disclaimer">
       Paid for by the Alliance Against Antisemitism Political Action Committee,
       C/O MBA Consulting, PO Box 15845 Washington, DC 20003.
-      Not authorized by any candidate or candidate’s committee.
+      Not authorized by any candidate or candidate's committee.
       Contributions are not deductible for federal tax purposes.
     </div>
   </footer>
